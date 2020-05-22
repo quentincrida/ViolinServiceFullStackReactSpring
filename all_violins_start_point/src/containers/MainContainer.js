@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
-import ViolinContainer from './ViolinContainer';
+import MusicianContainer from './MusicianContainer';
 
 const MainContainer = () => {
 
@@ -10,7 +10,7 @@ const MainContainer = () => {
       <Fragment>
       <NavBar/>
       <Switch>
-        <Route path="/violins" component={ViolinContainer}/>
+        <Route path="/violins" component={MusicianContainer}/>
       </Switch>
       </Fragment>
       </Router>

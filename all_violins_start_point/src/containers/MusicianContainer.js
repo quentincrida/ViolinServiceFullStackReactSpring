@@ -1,13 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import ViolinList from '../components/violins/ViolinList';
+import MusicianList from '../components/musicians/MusicianList';
 import Request from '../helpers/request';
 
-class ViolinContainer extends Component {
+class MusicianContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      violins: []
+      musicians: []
     }
   }
 
@@ -16,7 +16,7 @@ class ViolinContainer extends Component {
 
     request.get('/api/violins')
     .then((data) => {
-      this.setState({violins: data});
+      this.setState({musicians: data});
     })
   }
   render(){
@@ -25,7 +25,7 @@ class ViolinContainer extends Component {
       <Fragment>
         <Switch>
         <Route render={(props) => {
-          return <ViolinList violins={this.state.violins}/>
+          return <MusicianList musicians={this.state.musicians}/>
         }}/>
         </Switch>
       </Fragment>
@@ -34,4 +34,4 @@ class ViolinContainer extends Component {
   }
 }
 
-export default ViolinContainer;
+export default MusicianContainer;

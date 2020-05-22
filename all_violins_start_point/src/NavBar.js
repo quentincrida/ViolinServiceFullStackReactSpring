@@ -3,7 +3,7 @@ import React from 'react';
 const NavBar = (props) => {
   return (
     <header>
-      <img src="/images/pirtate-flag.jpg" alt="Logo"/>
+      <img src="/images/orchestra-2098877_640.jpg" alt="Logo"/>
 
       <ul>
         <li className="navLink">
