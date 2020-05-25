@@ -6,6 +6,8 @@ const MusicianList = (props) => {
 	if(props.musicians.length === 0){
 		return (<p>Tuning musicians...</p>)
 	}
+
+	
 const musicians = props.musicians.map((musician, index) => {
 	return (
 		<li key={index} className="component-item">
