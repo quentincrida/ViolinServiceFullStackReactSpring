@@ -2,6 +2,7 @@ package com.example.philharmonic.violinservice.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,14 +21,14 @@ public class Tutti {
     private String name;
 
     //prevent recursion with @JsonBackReference
-    @JsonIgnore
+    @JsonIgnoreProperties(value="tutti")
 //    @JsonBackReference
-    @OneToMany(mappedBy = "tutti")
-    private List<Violin> tuttis;
+    @OneToMany(mappedBy = "tutti", fetch = FetchType.LAZY)
+    private List<Violin>  violins;
 
     public Tutti(String name) {
         this.name = name;
-        this.tuttis = new ArrayList<Violin>();
+//        this.tuttis = new ArrayList<Violin>();
     }
     public Tutti(){}
 
@@ -39,12 +40,20 @@ public class Tutti {
         this.name = name;
     }
 
-    public List<Violin> getFirstViolins() {
-        return tuttis;
+//    public List<Violin> getFirstViolins() {
+//        return violins;
+//    }
+
+//    public void setFirstViolins(List<Violin> violins) {
+//        this.violins = violins;
+//    }
+
+    public List<Violin> getViolins() {
+        return violins;
     }
 
-    public void setFirstViolins(List<Violin> tuttis) {
-        this.tuttis = tuttis;
+    public void setViolins(List<Violin> violins) {
+        this.violins = violins;
     }
 
     public Long getId() {
@@ -54,4 +63,5 @@ public class Tutti {
     public void setId(Long id) {
         this.id = id;
     }
+
 }

@@ -1,6 +1,8 @@
 package com.example.philharmonic.violinservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ public class Symphony {
     @Column(name="opus")
     private int opus;
 
-    @JsonIgnore
+    @JsonIgnoreProperties(value="symphonies")
     @ManyToMany
     @JoinTable(
            name = "violins_symphonies",
@@ -30,12 +32,18 @@ public class Symphony {
            nullable = false, updatable = false)
            })
 
-           private List<Violin> violins;
+    private List<Violin> violins;
+
+
+
+    public void setViolins(List<Violin> violins) {
+        this.violins = violins;
+    }
 
     public Symphony(String composer, int opus) {
         this.composer = composer;
         this.opus = opus;
-        this.violins  = new ArrayList();
+        this.violins  = new ArrayList<Violin>();
     }
 
     public Symphony(){}
@@ -54,6 +62,10 @@ public class Symphony {
 
     public void setOpus(int opus) {
         this.opus = opus;
+    }
+
+    public List<Violin> getViolins() {
+        return violins;
     }
 
     public Long getId() {

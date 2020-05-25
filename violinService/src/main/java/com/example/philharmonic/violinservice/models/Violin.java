@@ -1,16 +1,18 @@
 package com.example.philharmonic.violinservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="violins")
 
-public class Violin {
+public class Violin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,16 +26,15 @@ public class Violin {
     @Column(name="age")
     private int age;
 //new jsonignore
-    @JsonIgnore
+    @JsonIgnoreProperties(value="violins")
     @ManyToOne
     @JoinColumn(name="tutti_id", nullable = false)
     private Tutti tutti;
 
-    @JsonIgnore
+    @JsonIgnoreProperties(value="violins")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
-            name = "violins_symphonies",
             joinColumns = {@JoinColumn(
                     name = "violin_id",
                     nullable = false, updatable = false)

@@ -1,10 +1,16 @@
-import React  from 'react';
+import React, {Fragment} from 'react';
 
 const Musician = (props) => {
-
+  if (!props.musician){
+    return "loading..."
+  }
 
   return (
-    <div>I'm a Musician!</div>
+    <Fragment>
+    <p>{props.musician.firstName} {props.musician.lastName}</p>
+    <p>Age: {props.musician.age}</p>
+    <p>Section: {props.musician.tutti}</p>
+    </Fragment>
   )
 }
 

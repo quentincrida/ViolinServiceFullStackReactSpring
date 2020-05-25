@@ -89,5 +89,9 @@ public class DataLoader implements ApplicationRunner {
         este.addSymphony(shostakovich);
         este.addSymphony(haydn);
         violinRepository.save(este);
+
+//        bass.addSymphony(shostakovich);
+//        bass.addSymphony(beethoven);
+//        violinRepository.save(bass);
     }
 }
