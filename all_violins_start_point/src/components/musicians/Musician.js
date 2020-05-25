@@ -9,7 +9,7 @@ const Musician = (props) => {
     <Fragment>
     <p>{props.musician.firstName} {props.musician.lastName}</p>
     <p>Age: {props.musician.age}</p>
-    <p>Section: {props.musician.tutti}</p>
+    <p>Section: {props.musician.tutti.name}</p>
     </Fragment>
   )
 }
