@@ -37,13 +37,7 @@ public class Tutti {
         this.name = name;
     }
 
-//    public List<Violin> getFirstViolins() {
-//        return violins;
-//    }
 
-//    public void setFirstViolins(List<Violin> violins) {
-//        this.violins = violins;
-//    }
 
     public List<Musician> getMusicians() {
         return musicians;
