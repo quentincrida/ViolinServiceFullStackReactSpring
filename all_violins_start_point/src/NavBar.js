@@ -7,7 +7,7 @@ const NavBar = (props) => {
 
       <ul>
         <li className="navLink">
-          <a href="/violins">Violins</a>
+          <a href="/musicians">Musicians</a>
         </li>
         <li className="navLink">
           <a href="/tuttis">Tuttis</a>

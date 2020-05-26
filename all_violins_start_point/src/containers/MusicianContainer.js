@@ -16,15 +16,15 @@ class MusicianContainer extends Component {
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/violins')
+    request.get('/api/musicians')
     .then((data) => {
       this.setState({musicians: data});
     })
   }
-  findMusicianById(){
+  findMusicianById(id){
     return
-    this.state.symphonies.find((symphony) => {
-        return symphony.id === pareInt(id);
+    this.state.musicians.find((musician) => {
+        return musician.id === parseInt(id);
     });
   }
   render(){
@@ -32,10 +32,10 @@ class MusicianContainer extends Component {
     <Router>
       <Fragment>
         <Switch>
-        <Route exact path='/symphonies/:id' render={(props) => {
+        <Route exact path="/musicians/:id" render={(props) => {
           const id = props.match.params.id;
           const musician = this.findMusicianById(id);
-          return <MusicianDetail musician={musician} />
+          return <MusicianDetail musician={musician}/>
          }} />
         <Route render={(props) => {
           return <MusicianList musicians={this.state.musicians}/>

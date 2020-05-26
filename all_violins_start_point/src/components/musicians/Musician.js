@@ -1,13 +1,18 @@
 import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 const Musician = (props) => {
   if (!props.musician){
     return "loading..."
   }
 
+  const url = "/musicians/" + props.musician.id;
+
   return (
     <Fragment>
-    <p>{props.musician.firstName} {props.musician.lastName}</p>
+    <Link to = {url} className="name">
+    {props.musician.firstName} {props.musician.lastName}
+    </Link>
     <p>Age: {props.musician.age}</p>
     <p>Section: {props.musician.tutti.name}</p>
     </Fragment>

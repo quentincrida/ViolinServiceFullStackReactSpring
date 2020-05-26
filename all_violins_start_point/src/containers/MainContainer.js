@@ -12,7 +12,7 @@ const MainContainer = () => {
       <Fragment>
       <NavBar/>
       <Switch>
-        <Route path="/violins" component={MusicianContainer}/>
+        <Route path="/musicians" component={MusicianContainer}/>
         <Route path="/tuttis" component={TuttiContainer}/>
         <Route path="/symphonies" component={SymphonyContainer}/>
       </Switch>
