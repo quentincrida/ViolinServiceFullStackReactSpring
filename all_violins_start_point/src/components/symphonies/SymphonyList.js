@@ -3,9 +3,15 @@ import Symphony from './Symphony.js';
 
 
 const SymphonyList = (props) => {
-	const symphonies = props.symphonies.map((symphony) => {
-			return (<li key={symphony.id} className="component-item">
+	if(props.symphonies.length === 0) {
+		return (<p>Waiting on symphonies....</p>)
+	}
+	const symphonies = props.symphonies.map((symphony, index) => {
+			return (
+				<li key={index} className="component-item">
+			<div className="component">
 				<Symphony symphony={symphony} />
+				</div>
 			</li>
 		)
 		})

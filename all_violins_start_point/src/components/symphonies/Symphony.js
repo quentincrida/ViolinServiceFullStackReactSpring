@@ -1,14 +1,17 @@
-import React  from 'react';
+import React, {Fragment}  from 'react';
 
 const Symphony = (props) => {
+  if(!props.symphony){
+    return "Loading..."
+  }
 
   return (
-    <div className="component">
-        <p className="name">
+    <Fragment>
+        <p>
           {props.symphony.composer}
         </p>
       <p>Opus: {props.symphony.opus}</p>
-    </div>
+    </Fragment>
   )
 }
 

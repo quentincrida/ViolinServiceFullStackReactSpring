@@ -3,8 +3,8 @@ import Tutti from './Tutti.js';
 
 
 const TuttiList = (props) => {
-	const tuttis = props.tuttis.map((tutti) => {
-			return (<li key={tutti.id} className="component-item">
+	const tuttis = props.tuttis.map((tutti, index) => {
+			return (<li key={index} className="component-item">
 				<Tutti tutti={tutti} />
 			</li>
 		)
