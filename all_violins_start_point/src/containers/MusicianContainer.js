@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MusicianList from '../components/musicians/MusicianList';
+import MusicianDetail from '../components/musicians/MusicianDetail';
 import Request from '../helpers/request';
 
 class MusicianContainer extends Component {
@@ -9,6 +10,7 @@ class MusicianContainer extends Component {
     this.state = {
       musicians: []
     }
+    this.findMusicianById = this.findMusicianById.bind(this);
   }
 
   componentDidMount(){
@@ -19,11 +21,22 @@ class MusicianContainer extends Component {
       this.setState({musicians: data});
     })
   }
+  findMusicianById(){
+    return
+    this.state.symphonies.find((symphony) => {
+        return symphony.id === pareInt(id);
+    });
+  }
   render(){
     return (
     <Router>
       <Fragment>
         <Switch>
+        <Route exact path='/symphonies/:id' render={(props) => {
+          const id = props.match.params.id;
+          const musician = this.findMusicianById(id);
+          return <MusicianDetail musician={musician} />
+         }} />
         <Route render={(props) => {
           return <MusicianList musicians={this.state.musicians}/>
         }}/>
