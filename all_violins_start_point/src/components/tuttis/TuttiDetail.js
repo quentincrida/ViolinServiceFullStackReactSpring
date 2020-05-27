@@ -7,7 +7,7 @@ class TuttiDetail extends Component {
       return "Tuttis are loading..."
     }
     const musicians = this.props.tutti.musicians.map((musician, index) => {
-      return <li key={index}>{musician.firstName }{musician.lastName}</li>
+      return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
     return (
       <div className="component">
