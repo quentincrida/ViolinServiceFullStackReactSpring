@@ -26,16 +26,22 @@ class MusicianContainer extends Component {
         return musician.id === parseInt(id);
     });
   }
+  handleDelete(id){
+    const request = new Request();
+    const url = '/api/musicians/' + id;
+    request.delete(url).then(() => {
+    window.location = '/musicians';
+  });
+}
   render(){
     return (
     <Router>
       <Fragment>
         <Switch>
-        <Route exact path="/musicians/:id" render={(props) => {
-          const id = props.match.params.id;
-          const musician = this.findMusicianById(id);
-          return <MusicianDetail musician={musician}/>
-         }} />
+        <Route exact path="/musicians/:id" render={(props) =>{
+          const musician = this.findMusicianById(props.match.params.id);
+          return <MusicianDetail musician={musician} onDelete={this.handleDelete}/>
+        }}/>
         <Route render={(props) => {
           return <MusicianList musicians={this.state.musicians}/>
         }}/>

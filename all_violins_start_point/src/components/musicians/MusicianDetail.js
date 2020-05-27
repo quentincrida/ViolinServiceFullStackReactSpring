@@ -2,6 +2,15 @@ import React, {Component} from 'react';
 import Musician from './Musician';
 
 class MusicianDetail extends Component {
+  constructor(props){
+   super(props)
+   this.handleDelete = this.handleDelete.bind(this);
+ }
+
+ handleDelete(){
+   this.props.onDelete(this.props.musician.id)
+ }
+
   render(){
     if(!this.props.musician){
     return "I fart in your general direction"
@@ -14,7 +23,10 @@ class MusicianDetail extends Component {
       <div className = "component">
       <Musician musician = {this.props.musician}/>
       <p>Symphonies: </p>
-      <ul>{symphonies}</ul>
+      <ul>
+      {symphonies}
+      </ul>
+      <button onClick={this.handleDelete}>Delete {this.props.musician.firstName}</button>
       </div>
     )
   }
