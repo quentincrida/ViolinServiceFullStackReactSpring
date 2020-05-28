@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MusicianList from '../components/musicians/MusicianList';
 import MusicianDetail from '../components/musicians/MusicianDetail';
 import Request from '../helpers/request';
+import MusicianForm from '../components/musicians/MusicianForm';
 
 class MusicianContainer extends Component {
   constructor(props){
@@ -30,11 +31,13 @@ class MusicianContainer extends Component {
       })
     })
     }
+
   findMusicianById(id){
     return this.state.musicians.find((musician) => {
         return musician.id === parseInt(id);
     });
   }
+
   handleDelete(id){
     const request = new Request();
     const url = '/api/musicians/' + id;
@@ -42,11 +45,21 @@ class MusicianContainer extends Component {
     window.location = '/musicians';
   });
 }
+  handlePost(musician){
+    const request = new Request();
+    request.post('/api/musicians', musician).then(() => {
+      window.location = '/musicians'
+    })
+  }
+
   render(){
     return (
     <Router>
       <Fragment>
         <Switch>
+        <Route exact path="/musicians/new" render={(props) => {
+          return <MusicianForm tuttis = {this.state.tuttis} onCreate={this.handlePost}/>
+        }}/>
         <Route exact path="/musicians/:id" render={(props) =>{
           const musician = this.findMusicianById(props.match.params.id);
           return <MusicianDetail musician={musician} onDelete={this.handleDelete}/>
