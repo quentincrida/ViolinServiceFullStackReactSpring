@@ -3,13 +3,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import TuttiList from '../components/tuttis/TuttiList';
 import Request from '../helpers/request';
 import TuttiDetail from '../components/tuttis/TuttiDetail';
+import TuttiForm from '../components/tuttis/TuttiForm';
 
 
 class TuttiContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      tuttis: []
+      tuttis: [],
+      musicians: []
     }
     this.findTuttiById = this.findTuttiById.bind(this);
   }
@@ -17,9 +19,15 @@ class TuttiContainer extends Component {
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/tuttis')
+    const tuttiPromise = request.get('/api/tuttis');
+    const musicianPromise = request.get('/api/musicians');
+
+    Promise.all([tuttiPromise, musicianPromise])
     .then((data) => {
-      this.setState({tuttis: data});
+      this.setState({
+        tuttis: data[0],
+        musicians: data[1]
+      });
     })
   }
   findTuttiById(id){
@@ -32,6 +40,9 @@ class TuttiContainer extends Component {
       <Router>
         <Fragment>
           <Switch>
+          <Route exact path='/tuttis/new' render={() => {
+            return <TuttiForm musicians = {this.state.musicans}/>
+          }}/>
           <Route exact path='/tuttis/:id' render={(props) => {
             const id = props.match.params.id;
             const tutti = this.findTuttiById(id);

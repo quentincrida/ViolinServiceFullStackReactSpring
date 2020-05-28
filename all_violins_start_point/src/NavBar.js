@@ -16,6 +16,9 @@ const NavBar = (props) => {
           <a href="/tuttis">Sections</a>
         </li>
         <li className="navLink">
+          <a href="/tuttis/new">Create Section</a>
+        </li>
+        <li className="navLink">
           <a href="/symphonies" >Symphonies</a>
         </li>
 
