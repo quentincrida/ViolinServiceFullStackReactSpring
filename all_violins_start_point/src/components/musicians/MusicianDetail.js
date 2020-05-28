@@ -13,7 +13,7 @@ class MusicianDetail extends Component {
 
   render(){
     if(!this.props.musician){
-    return "I fart in your general direction"
+    return "Musicians are loading..."
     }
     const symphonies = this.props.musician.symphonies.map((symphony, index) => {
       return <li key={index}>{symphony.composer}</li>

@@ -8,7 +8,9 @@ class MusicianContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      musicians: []
+      musicians: [],
+      tuttis: [],
+      symphonies: []
     }
     this.findMusicianById = this.findMusicianById.bind(this);
   }
@@ -16,11 +18,18 @@ class MusicianContainer extends Component {
   componentDidMount(){
     const request = new Request();
 
-    request.get('/api/musicians')
-    .then((data) => {
-      this.setState({musicians: data});
+    const musicianPromise = request.get('/api/musicians');
+    const tuttiPromise = request.get('/api/tuttis');
+    const symphonyPromise = request.get('/api/symphonies');
+
+    Promise.all([musicianPromise, tuttiPromise, symphonyPromise]).then((data) => {
+      this.setState({
+        musicians: data[0],
+        tuttis: data[1],
+        symphonies: data[2]
+      })
     })
-  }
+    }
   findMusicianById(id){
     return this.state.musicians.find((musician) => {
         return musician.id === parseInt(id);
