@@ -26,4 +26,15 @@ public class SymphonyController {
         symphonyRepository.save(symphony);
         return new ResponseEntity<>(symphony, HttpStatus.CREATED);
     }
+    @PatchMapping(value = "/symphonies/{id}")
+    public ResponseEntity<Symphony> updateSymphony(@RequestBody Symphony symphony){
+        symphonyRepository.save(symphony);
+        return new ResponseEntity<>(symphony, HttpStatus.OK);
+    }
+    @DeleteMapping(value = "/symphonies/{id}")
+    public ResponseEntity<Symphony> deleteSymphony(@PathVariable Long id){
+        Symphony found = symphonyRepository.getOne(id);
+        symphonyRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 }
