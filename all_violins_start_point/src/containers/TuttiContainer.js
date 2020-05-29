@@ -35,13 +35,20 @@ class TuttiContainer extends Component {
       return tutti.id === parseInt(id);
     });
   }
+  handlePost(tutti){
+    const request = new Request();
+    request.post('api/tuttis', tutti).then(() => {
+      window.location = '/tuttis'
+
+    })
+  }
   render(){
     return (
       <Router>
         <Fragment>
           <Switch>
-          <Route exact path='/tuttis/new' render={() => {
-            return <TuttiForm musicians = {this.state.musicans}/>
+          <Route exact path='/tuttis/new' render={(props) => {
+            return <TuttiForm musicians = {this.state.musicians} onCreate= {this.handlePost}/>
           }}/>
           <Route exact path='/tuttis/:id' render={(props) => {
             const id = props.match.params.id;

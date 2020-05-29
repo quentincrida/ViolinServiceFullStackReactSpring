@@ -37,8 +37,6 @@ public class Tutti {
         this.name = name;
     }
 
-
-
     public List<Musician> getMusicians() {
         return musicians;
     }
