@@ -34,7 +34,7 @@ class MusicianContainer extends Component {
 
   findMusicianById(id){
     return this.state.musicians.find((musician) => {
-        return musician.id === parseInt(id);
+    return musician.id === parseInt(id);
     });
   }
 

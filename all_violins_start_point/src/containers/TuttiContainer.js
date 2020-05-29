@@ -27,7 +27,7 @@ class TuttiContainer extends Component {
       this.setState({
         tuttis: data[0],
         musicians: data[1]
-      });
+      })
     })
   }
   findTuttiById(id){
@@ -46,6 +46,7 @@ class TuttiContainer extends Component {
           <Route exact path='/tuttis/:id' render={(props) => {
             const id = props.match.params.id;
             const tutti = this.findTuttiById(id);
+            // const tutti = this.findTuttiById(props.match.params.id);
             return <TuttiDetail tutti={tutti}/>
           }} />
           <Route render={(props) => {

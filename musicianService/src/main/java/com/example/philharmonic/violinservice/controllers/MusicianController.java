@@ -33,6 +33,17 @@ public class MusicianController {
         musicianRepository.save(musician);
         return new ResponseEntity<>(musician, HttpStatus.CREATED);
     }
+    @PatchMapping(value="/musicians/{id}")
+    public ResponseEntity<Musician> updateMusician(@RequestBody Musician musician){
+        musicianRepository.save(musician);
+        return new ResponseEntity<>(musician, HttpStatus.OK);
+    }
+    @DeleteMapping(value="/musicians/{id}")
+        public ResponseEntity<Musician> deleteMusician(@PathVariable Long id) {
+        Musician found = musicianRepository.getOne(id);
+        musicianRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
    }
 
 

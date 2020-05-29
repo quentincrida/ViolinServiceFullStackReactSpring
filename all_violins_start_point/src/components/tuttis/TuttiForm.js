@@ -9,35 +9,35 @@ class TuttiForm extends Component {
         musician: null
       }
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleMusician = this.handleMusician.bind(this);
-  }
-
-  handleChange(event){
-    let propertyName = event.target.name;
-    let tutti = this.state.tutti
-    tutti[propertyName] = event.target.value;
-    this.setState({tutti: tutti})
-  }
-  handleMusician(event){
-
+  //   this.handleChange = this.handleChange.bind(this);
+  //   this.handleMusician = this.handleMusician.bind(this);
+  // }
+  //
+  // handleChange(event){
+  //   let propertyName = event.target.name;
+  //   let tutti = this.state.tutti
+  //   tutti[propertyName] = event.target.value;
+  //   this.setState({tutti: tutti})
+  // }
+  // handleMusician(event){
+  //
   }
   render(){
-    if(!this.props.musicians.length === 0){
+  //   if(!this.props.musicians.length === 0){
       return <p>Achtung...</p>
     }
-    return (
-      <div>
-      <form >
-      <input type="text" placeholder="Name"
-      name="name" onChange={this.handleChange}
-      value={this.state.name}/>
-      <button type="submit">Save</button>
-      </form>
-      </div>
-    )
+    // return (
+    //   <div>
+    //   <form >
+    //   <input type="text" placeholder="Name"
+    //   name="name" onChange={this.handleChange}
+    //   value={this.state.name}/>
+    //   <button type="submit">Save</button>
+    //   </form>
+    //   </div>
+    // )
 
-  }
+  // }
 
 }
 
