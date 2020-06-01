@@ -60,6 +60,14 @@ class MusicianContainer extends Component {
         <Route exact path="/musicians/new" render={(props) => {
           return <MusicianForm tuttis = {this.state.tuttis} onCreate={this.handlePost}/>
         }}/>
+        <Route exact path="/musicians/:id/edit" render={(props) => {
+          const id = props.match.params.id;
+          const musician = this.findMusicianById(id);
+          return <MusicianForm musician={musician}
+          tuttis={this.state.tuttis}/>
+        }}
+
+        />
         <Route exact path="/musicians/:id" render={(props) =>{
           const musician = this.findMusicianById(props.match.params.id);
           return <MusicianDetail musician={musician} onDelete={this.handleDelete}/>

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class TuttiForm extends Component {
   constructor(props){
     super(props);
-    this. state = {
+    this.state = {
       tutti: {
         name: "",
         musician: null
@@ -35,10 +35,10 @@ class TuttiForm extends Component {
     if(!this.props.musicians.length === 0){
       return <p>Loading musicians...</p>
     }
-    const musicianOptions = this.props.musicians.map((musician, index) => {
-        return <option key={index} value={index}>
-        {musician.firstName} {musician.lastName}</option>
-    })
+    // const musicianOptions = this.props.musicians.map((musician, index) => {
+    //     return <option key={index} value={index}>
+    //     {musician.firstName} {musician.lastName}</option>
+    // })
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
