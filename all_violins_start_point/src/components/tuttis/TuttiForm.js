@@ -29,7 +29,7 @@ class TuttiForm extends Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    this.props.onCreate(this.state.musician);
+    this.props.onCreate(this.state.tutti);
   }
   render(){
     if(!this.props.musicians.length === 0){
@@ -45,11 +45,11 @@ class TuttiForm extends Component {
       <input type="text" placeholder="Name" name="name" onChange={this.handleChange}
       value ={this.state.name} />
 
-      <select name="musician" onChange={this.handleMusician}
-      defaultValue="select-musician">
-      <option disabled value="select-musician">Select a Musician</option>
-      {musicianOptions}
-      </select>
+      // <select name="musician" onChange={this.handleMusician}
+      // defaultValue="select-musician">
+      // <option disabled value="select-musician">Select a Musician</option>
+      // {musicianOptions}
+      // </select>
 
       <button type="submit">Save</button>
       </form>
