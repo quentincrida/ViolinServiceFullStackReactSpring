@@ -14,6 +14,8 @@ const Musician = (props) => {
     {props.musician.firstName} {props.musician.lastName}
     </Link>
     <p>Age: {props.musician.age}</p>
+    <p>Instrument: {props.musician.instrument}</p>
+    <p>Position: {props.musician.position}</p>
     <p>Section: {props.musician.tutti.name}</p>
     </Fragment>
   )

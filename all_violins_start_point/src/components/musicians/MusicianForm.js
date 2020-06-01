@@ -8,6 +8,8 @@ class MusicianForm extends Component {
       firstName: "",
       lastName: "",
       age: 0,
+      instrument: "",
+      position: "",
       tutti: null
     }
   }
@@ -52,6 +54,12 @@ class MusicianForm extends Component {
         value={this.state.lastName}/>
         <input type="number" placeholder="Age" name="age"
         onChange={this.handleChange} value={this.state.age}/>
+        <input type="text" placeholder="Instrument"
+        name="instrument" onChange={this.handleChange}
+        value={this.state.instrument}/>
+        <input type="text" placeholder="Position"
+        name="Position" onChange={this.handleChange}
+        value={this.state.position}/>
 
         <select name="tutti" onChange={this.handleTutti}
         defaultValue="select-tutti">
