@@ -55,7 +55,9 @@ class MusicianForm extends Component {
 
         <select name="tutti" onChange={this.handleTutti}
         defaultValue="select-tutti">
-        <option disabled value="select-tutti">Select a Section</option>{tuttiOptions}</select>
+        <option disabled value="select-tutti">Select a Section</option>
+        {tuttiOptions}
+        </select>
 
         <button type="submit">Save</button>
         </form>
