@@ -18,11 +18,12 @@ class MusicianForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.findTuttiIndex = this.findTuttiIndex.bind(this);
   }
+
   componentDidMount(){
-    if(this.props.musician){
-      this.setState({musician: {...this.props.musician}})
+      if(this.props.musician){
+        this.setState({musician: {... this.props.musician}})
+      }
     }
-  }
   findTuttiIndex(){
     if(this.props.musician){
       return this.props.tuttis.findIndex(tutti =>
@@ -48,12 +49,19 @@ class MusicianForm extends Component {
   }
   handleSubmit(event){
     event.preventDefault();
+    // if(this.state.musician.id){
     this.props.onCreate(this.state.musician);
-  }
+  // }
+}
   render(){
     if(!this.props.tuttis.length === 0){
       return <p>Loading...........</p>
     }
+
+    const tuttiOptions = this.props.tuttis.map((tutti, index) => {
+        return <option key={index} value={index}>{tutti.name}</option>
+    });
+
     let heading = "";
 
     if(!this.props.musician){
@@ -62,9 +70,6 @@ class MusicianForm extends Component {
       heading = "Edit " + this.props.musician.firstName;
     }
 
-    const tuttiOptions = this.props.tuttis.map((tutti, index) => {
-        return <option key={index} value={index}>{tutti.name}</option>
-    })
     return (
       <div>
       <h3>{heading}</h3>
@@ -88,12 +93,10 @@ class MusicianForm extends Component {
         name="position" onChange={this.handleChange}
         value={this.state.position}/>
 
-        <select name="tutti" onChange={this.handleTutti}
-        defaultValue={this.findTuttiIndex() ||"select-tutti"}>
-        <option disabled value="select-tutti">Select a Section</option>
+      <select name="tutti" onChange={this.handleTutti} defaultValue={this.findTuttiIndex() || "select-tutti"}>
+      <option disabled value="select-tutti">Select a Section</option>
         {tuttiOptions}
-        </select>
-
+      </select>
         <button type="submit">Save</button>
         </form>
       </div>
