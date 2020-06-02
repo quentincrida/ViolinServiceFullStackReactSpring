@@ -4,8 +4,3 @@ GOTO: localhost:8080/h2
 USE:  ./db/musicianservice_db
 
 GOTO localhost:8080/musicians
-<<<<<<< HEAD
-(also use for Insomnia)
-=======
-(also use for Insomnia)
->>>>>>> 80ae6e91903f99799fd4a098a323980494158470
