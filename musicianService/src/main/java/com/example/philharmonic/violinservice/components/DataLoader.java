@@ -41,19 +41,19 @@ public class DataLoader implements ApplicationRunner {
         Tutti bass = new Tutti("Basses");
         tuttiRepository.save(bass);
 
-        Musician quentin = new Musician("Quentin", "Crida", 48, viola);
+        Musician quentin = new Musician("Quentin", "Crida", 48,"Viola", "Principal", viola);
         musicianRepository.save(quentin);
 
-        Musician este = new Musician("Este", "Visser", 43, violin2);
+        Musician este = new Musician("Este", "Visser", 43,"Violin", "Principal", violin2);
         musicianRepository.save(este);
 
-        Musician emile = new Musician("Emile", "de Roubaix", 43, violin3);
+        Musician emile = new Musician("Emile", "de Roubaix", 43,"Violin", "Rank and File", violin3);
         musicianRepository.save(emile);
 
-        Musician peter = new Musician("Peter", "Martens", 48, cello);
+        Musician peter = new Musician("Peter", "Martens", 48,"Cello", "Sub Principal", cello);
         musicianRepository.save(peter);
 
-        Musician leon = new Musician("Leon", "Bosch", 55, bass);
+        Musician leon = new Musician("Leon", "Bosch", 55, "Bass", "Principal", bass);
         musicianRepository.save(leon);
 
         Symphony beethoven = new Symphony("Beethoven", 151);

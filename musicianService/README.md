@@ -1,7 +1,7 @@
 # violinService
 GOTO: localhost:8080/h2
 
-USE:  ./db/violinservice_db
+USE:  ./db/musicianservice_db
 
-GOTO localhost:8080/violins
+GOTO localhost:8080/musicians
 (also use for Insomnia)

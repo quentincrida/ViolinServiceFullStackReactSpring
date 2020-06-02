@@ -25,6 +25,13 @@ public class Musician implements Serializable {
 
     @Column(name="age")
     private int age;
+
+    @Column(name="instrument")
+    private String instrument;
+
+    @Column(name="position")
+    private String position;
+
 //new jsonignore
     @JsonIgnoreProperties(value="musicians")
     @ManyToOne
@@ -47,10 +54,12 @@ public class Musician implements Serializable {
     )
     private List<Symphony> symphonies;
 
-    public Musician(String firstName, String lastName, int age, Tutti tutti) {
+    public Musician(String firstName, String lastName, int age, String instrument, String position, Tutti tutti) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.instrument = instrument;
+        this.position = position;
         this.tutti = tutti;
         this.symphonies = new ArrayList<>();
     }
@@ -80,6 +89,22 @@ public class Musician implements Serializable {
         this.age = age;
     }
 
+    public String getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument(String instrument) {
+        this.instrument = instrument;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public Long getId() {
         return id;
     }
@@ -101,6 +126,8 @@ public class Musician implements Serializable {
     public void setSymphonies(List<Symphony> symphonies) {
         this.symphonies = symphonies;
     }
+
+
 
     public void addSymphony(Symphony symphony){
         this.symphonies.add(symphony);
