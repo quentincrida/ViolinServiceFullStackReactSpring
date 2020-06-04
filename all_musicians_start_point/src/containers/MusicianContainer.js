@@ -73,11 +73,13 @@ class MusicianContainer extends Component {
           return <MusicianForm musician={musician}
           tuttis={this.state.tuttis} symphonies={this.state.symphonies} onUpdate={this.handleUpdate}/>
         }}
-
         />
         <Route exact path="/musicians/:id" render={(props) =>{
+          const id = props.match.params.id;
           const musician = this.findMusicianById(props.match.params.id);
-          return <MusicianDetail musician={musician} onDelete={this.handleDelete}/>
+          return <MusicianDetail musician={musician}
+          onDelete={this.handleDelete}
+          onUpdate={this.handleUpdate}/>
         }}/>
         <Route render={(props) => {
           return <MusicianList musicians={this.state.musicians}/>

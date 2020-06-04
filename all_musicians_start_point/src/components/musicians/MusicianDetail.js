@@ -6,10 +6,16 @@ class MusicianDetail extends Component {
   constructor(props){
    super(props)
    this.handleDelete = this.handleDelete.bind(this);
+   this.deleteSymphony = this.deleteSymphony.bind(this);
  }
+
 
  handleDelete(){
    this.props.onDelete(this.props.musician.id)
+ }
+ deleteSymphony(symphonyIndex){
+   this.props.musician.symphonies.splice(symphonyIndex, 1)
+   this.props.onUpdate(this.props.musician)
  }
 
   render(){
@@ -17,7 +23,9 @@ class MusicianDetail extends Component {
     return "Musicians are loading..."
     }
     const symphonies = this.props.musician.symphonies.map((symphony, index) => {
-      return <li key={index}>{symphony.composer}</li>
+      return <li key={index}>{symphony.composer} <button onClick={() => this.deleteSymphony(index)}
+      >Delete</button>
+      </li>
     })
     const editUrl = "/musicians/" + this.props.musician.id + "/edit"
 
