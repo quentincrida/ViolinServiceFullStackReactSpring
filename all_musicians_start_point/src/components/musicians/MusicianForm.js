@@ -47,9 +47,14 @@ class MusicianForm extends Component {
     musician['tutti'] = selectedTutti
     this.setState({musician: musician})
   }
+
   handleSubmit(event){
     event.preventDefault();
+    if(this.state.musician.id){
+      this.props.onUpdate(this.state.musician)
+    } else {
     this.props.onCreate(this.state.musician);
+  }
 }
   render(){
     if(!this.props.tuttis.length === 0){
@@ -74,24 +79,24 @@ class MusicianForm extends Component {
         <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder="First Name"
         name="firstName" onChange={this.handleChange}
-        value={this.state.firstName}/>
+        value={this.state.musician.firstName}/>
 
         <input type="text" placeholder="Last Name"
         name="lastName" onChange={this.handleChange}
-        value={this.state.lastName}/>
+        value={this.state.musician.lastName}/>
 
         <input type="number" placeholder="Age" name="age"
-        onChange={this.handleChange} value={this.state.age}/>
+        onChange={this.handleChange} value={this.state.musician.age}/>
 
         <input type="text" placeholder="Instrument"
         name="instrument" onChange={this.handleChange}
-        value={this.state.instrument}/>
+        value={this.state.musician.instrument}/>
 
         <input type="text" placeholder="Position"
         name="position" onChange={this.handleChange}
-        value={this.state.position}/>
+        value={this.state.musician.position}/>
 
-      <select name="tutti" onChange={this.handleTutti} defaultValue={this.findTuttiIndex() || "select-tutti"}>
+      <select name="tutti" defaultValue={this.findTuttiIndex() || "select-tutti"} onChange={this.handleTutti}>
       <option disabled value="select-tutti">Select a Section</option>
         {tuttiOptions}
       </select>

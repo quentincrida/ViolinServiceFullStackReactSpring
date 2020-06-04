@@ -51,6 +51,12 @@ class MusicianContainer extends Component {
       window.location = '/musicians'
     })
   }
+  handleUpdate(musician){
+    const request = new Request();
+    request.patch('/api/musicians/' + musician.id, musician).then(() => {
+      window.location = '/musicians/' + musician.id
+    })
+  }
 
 
   render(){
@@ -65,7 +71,7 @@ class MusicianContainer extends Component {
           const id = props.match.params.id;
           const musician = this.findMusicianById(id);
           return <MusicianForm musician={musician}
-          tuttis={this.state.tuttis} symphonies={this.state.symphonies}/>
+          tuttis={this.state.tuttis} symphonies={this.state.symphonies} onUpdate={this.handleUpdate}/>
         }}
 
         />
