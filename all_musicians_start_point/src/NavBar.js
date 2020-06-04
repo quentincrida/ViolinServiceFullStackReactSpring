@@ -21,6 +21,9 @@ const NavBar = (props) => {
         <li className="navLink">
           <a href="/symphonies" >Symphonies</a>
         </li>
+        <li className="navLink">
+          <a href="/symphonies/new">Add Symphony</a>
+        </li>
 
       </ul>
     </header>

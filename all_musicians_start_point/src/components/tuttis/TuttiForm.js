@@ -35,10 +35,7 @@ class TuttiForm extends Component {
     if(!this.props.musicians.length === 0){
       return <p>Loading musicians...</p>
     }
-    // const musicianOptions = this.props.musicians.map((musician, index) => {
-    //     return <option key={index} value={index}>
-    //     {musician.firstName} {musician.lastName}</option>
-    // })
+  
     return (
       <div>
       <form onSubmit={this.handleSubmit}>

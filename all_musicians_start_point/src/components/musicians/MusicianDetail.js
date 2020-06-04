@@ -45,7 +45,7 @@ class MusicianDetail extends Component {
     const symphonyOptions = this.props.symphonies.map((symphony, index) => {
       if(!this.musicianHasSymphony(symphony)){
         return (
-          <option key={index} value={index}>{symphony.composer}</option>
+          <option key={index} value={index}>{symphony.composer} {symphony.number}</option>
         )
       } else {
         return null
