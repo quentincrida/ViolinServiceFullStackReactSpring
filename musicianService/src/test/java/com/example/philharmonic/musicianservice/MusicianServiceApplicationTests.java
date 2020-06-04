@@ -43,14 +43,14 @@ public class MusicianServiceApplicationTests {
         tuttiRepository.save(tutti);
         Musician leader = new Musician("Jurgs", "Schwietering", 28, "Violin", "Leader", tutti);
         musicianRepository.save(leader);
-        Symphony symphony = new Symphony("Beethoven", 131);
+        Symphony symphony = new Symphony("Beethoven", 1, "C Major", "10");
         symphonyRepository.save(symphony);
 
         Tutti tutti2 = new Tutti("Seconds");
         tuttiRepository.save(tutti2);
         Musician violin2 = new Musician("Wendy", "Schwietering", 6, "violin", "Sub Principal",tutti2);
         musicianRepository.save(violin2);
-        Symphony symphony2 = new Symphony("Mozart", 14);
+        Symphony symphony2 = new Symphony("Mozart", 14, "F monor", "K. 23");
         symphonyRepository.save(symphony2);
 
 
@@ -58,7 +58,7 @@ public class MusicianServiceApplicationTests {
         tuttiRepository.save(tutti3);
         Musician violin3 = new Musician("Simos", "Aering", 30, "Violin", "Principal", tutti3);
         musicianRepository.save(violin3);
-        Symphony symphony3 = new Symphony("Shostakovich", 150);
+        Symphony symphony3 = new Symphony("Shostakovich", 15, "D Major", "152");
         symphonyRepository.save(symphony3);
 
 

@@ -3,6 +3,7 @@ package com.example.philharmonic.musicianservice.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +18,14 @@ public class Symphony {
     @Column(name="composer")
     private String composer;
 
+    @Column(name="number")
+    private int number;
+
+    @Column(name="key")
+    private String key;
+
     @Column(name="opus")
-    private int opus;
+    private String opus;
 
     @JsonIgnoreProperties(value="symphonies")
     @ManyToMany
@@ -39,8 +46,10 @@ public class Symphony {
         this.musicians = musicians;
     }
 
-    public Symphony(String composer, int opus) {
+    public Symphony(String composer, int number, String key, String opus) {
         this.composer = composer;
+        this.number = number;
+        this.key = key;
         this.opus = opus;
         this.musicians  = new ArrayList<Musician>();
     }
@@ -55,11 +64,11 @@ public class Symphony {
         this.composer = composer;
     }
 
-    public int getOpus() {
+    public String getOpus() {
         return opus;
     }
 
-    public void setOpus(int opus) {
+    public void setOpus(String opus) {
         this.opus = opus;
     }
 
@@ -73,6 +82,22 @@ public class Symphony {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public void addMusician(Musician musician){

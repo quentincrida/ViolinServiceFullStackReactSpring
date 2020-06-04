@@ -56,19 +56,19 @@ public class DataLoader implements ApplicationRunner {
         Musician leon = new Musician("Leon", "Bosch", 55, "Bass", "Principal", bass);
         musicianRepository.save(leon);
 
-        Symphony beethoven = new Symphony("Beethoven", 151);
+        Symphony beethoven = new Symphony("Beethoven", 5, "C minor", "67");
         symphonyRepository.save(beethoven);
 
-        Symphony mozart = new Symphony("Mozart", 70);
+        Symphony mozart = new Symphony("Mozart", 41," C Major", "K.551");
         symphonyRepository.save(mozart);
 
-        Symphony haydn = new Symphony("Haydn", 1);
+        Symphony haydn = new Symphony("Haydn", 45, "F sharp minor", "Hb: ?");
         symphonyRepository.save(haydn);
 
-        Symphony shostakovich = new Symphony("Shostakovich", 100);
+        Symphony shostakovich = new Symphony("Shostakovich", 5, "D minor", "47");
         symphonyRepository.save(shostakovich);
 
-        Symphony vivaldi = new Symphony("Vivaldi", 12);
+        Symphony vivaldi = new Symphony("Vivaldi", 0, "C Major", "111a");
         symphonyRepository.save(vivaldi);
 
         quentin.addSymphony(beethoven);
