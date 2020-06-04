@@ -7,15 +7,29 @@ class MusicianDetail extends Component {
    super(props)
    this.handleDelete = this.handleDelete.bind(this);
    this.deleteSymphony = this.deleteSymphony.bind(this);
+   this.handleSubmit = this.handleSubmit.bind(this);
  }
 
 
  handleDelete(){
    this.props.onDelete(this.props.musician.id)
  }
+
  deleteSymphony(symphonyIndex){
    this.props.musician.symphonies.splice(symphonyIndex, 1)
    this.props.onUpdate(this.props.musician)
+ }
+ musicianHasSymphony(symphony){
+   return this.props.musician.symphonies.some((musicianSymphony) => {
+     return symphony.id === musicianSymphony.id
+   })
+ }
+ handleSubmit(event){
+   event.preventDefault();
+   const index = parseInt(event.target.symphonies.value)
+   const symphony = this.props.symphonies[index]
+   this.props.musician.symphonies.push(symphony)
+   this.props.onUpdate(this.props.musician);
  }
 
   render(){
@@ -28,6 +42,15 @@ class MusicianDetail extends Component {
       </li>
     })
     const editUrl = "/musicians/" + this.props.musician.id + "/edit"
+    const symphonyOptions = this.props.symphonies.map((symphony, index) => {
+      if(!this.musicianHasSymphony(symphony)){
+        return (
+          <option key={index} value={index}>{symphony.composer}</option>
+        )
+      } else {
+        return null
+      }
+    })
 
     return (
       <div className = "component">
@@ -36,6 +59,11 @@ class MusicianDetail extends Component {
       <ul>
       {symphonies}
       </ul>
+      <form onSubmit={this.handleSubmit}>
+        <select name="symphonies">{symphonyOptions}
+        </select>
+        <input type="submit" value="Add Symphony"/>
+      </form>
       <button onClick={this.handleDelete}>Delete {this.props.musician.firstName}</button>
       <Link to={editUrl}><button type="button">Edit {this.props.musician.firstName}</button></Link>
       </div>
