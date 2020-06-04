@@ -1,4 +1,4 @@
-# ViolinServiceFullStackReactSpring
+# MusicianServiceFullStackReactSpring
 Full stack app using Java, Spring and JS and React
 1. In One Terminal window, cd to musicianService (the backend)
 2. Open musicianService  in IntelliJ and run MusicianApplicationService folder, then open in your browser using http://localhost:8080/api/musicians
