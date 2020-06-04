@@ -1,11 +1,11 @@
-package com.example.philharmonic.violinservice;
+package com.example.philharmonic.musicianservice;
 
-import com.example.philharmonic.violinservice.models.Symphony;
-import com.example.philharmonic.violinservice.models.Tutti;
-import com.example.philharmonic.violinservice.models.Musician;
-import com.example.philharmonic.violinservice.repositories.SymphonyRepository;
-import com.example.philharmonic.violinservice.repositories.TuttiRepository;
-import com.example.philharmonic.violinservice.repositories.MusicianRepository;
+import com.example.philharmonic.musicianservice.models.Symphony;
+import com.example.philharmonic.musicianservice.models.Tutti;
+import com.example.philharmonic.musicianservice.models.Musician;
+import com.example.philharmonic.musicianservice.repositories.SymphonyRepository;
+import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
+import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

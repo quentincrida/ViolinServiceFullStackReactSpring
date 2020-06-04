@@ -1,7 +1,7 @@
-package com.example.philharmonic.violinservice.controllers;
+package com.example.philharmonic.musicianservice.controllers;
 
-import com.example.philharmonic.violinservice.models.Musician;
-import com.example.philharmonic.violinservice.repositories.MusicianRepository;
+import com.example.philharmonic.musicianservice.models.Musician;
+import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

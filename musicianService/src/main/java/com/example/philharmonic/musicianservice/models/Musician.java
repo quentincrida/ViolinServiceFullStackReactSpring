@@ -1,6 +1,5 @@
-package com.example.philharmonic.violinservice.models;
+package com.example.philharmonic.musicianservice.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 

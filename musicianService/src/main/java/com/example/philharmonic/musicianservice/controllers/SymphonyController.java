@@ -1,14 +1,13 @@
-package com.example.philharmonic.violinservice.controllers;
+package com.example.philharmonic.musicianservice.controllers;
 
-import com.example.philharmonic.violinservice.models.Symphony;
-import com.example.philharmonic.violinservice.repositories.SymphonyRepository;
+import com.example.philharmonic.musicianservice.models.Symphony;
+import com.example.philharmonic.musicianservice.repositories.SymphonyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class SymphonyController {
