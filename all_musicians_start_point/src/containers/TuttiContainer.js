@@ -35,13 +35,13 @@ class TuttiContainer extends Component {
       return tutti.id === parseInt(id);
     });
   }
-  // handlePost(tutti){
-  //   const request = new Request();
-  //   request.post('/api/tuttis', tutti)
-  //   .then(() => {
-  //     window.location = '/tuttis'
-  //   })
-  // }
+  handleDelete(id){
+    const request = new Request();
+    const url = '/api/tuttis/' + id;
+    request.delete(url).then(() => {
+      window.location = '/tuttis';
+    })
+  }
   handlePost(tutti){
     const request = new Request();
     request.post('/api/tuttis', tutti).then(() => {
@@ -58,9 +58,9 @@ class TuttiContainer extends Component {
             return <TuttiForm musicians = {this.state.musicians} onCreate={this.handlePost}/>
           }}/>
           <Route exact path='/tuttis/:id' render={(props) => {
-            const id = props.match.params.id;
-            const tutti = this.findTuttiById(id);
-            return <TuttiDetail tutti={tutti}/>
+            // const id = props.match.params.id;
+            const tutti = this.findTuttiById(props.match.params.id);
+            return <TuttiDetail tutti={tutti} onDelete={this.handleDelete}/>
           }} />
           <Route render={(props) => {
             return <TuttiList tuttis={this.state.tuttis}/>

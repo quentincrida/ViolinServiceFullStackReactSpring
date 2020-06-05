@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import Tutti from './Tutti';
 
 class TuttiDetail extends Component {
+  constructor(props){
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete(){
+    this.props.onDelete(this.props.tutti.id)
+  }
   render(){
     if(!this.props.tutti){
       return "Tuttis are loading..."
@@ -16,6 +23,7 @@ class TuttiDetail extends Component {
       <ul>
       {musicians}
       </ul>
+      <button onClick={this.handleDelete}>Delete{this.props.tutti.name}</button>
       </div>
     )
   }

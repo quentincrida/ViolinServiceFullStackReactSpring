@@ -10,19 +10,19 @@ const NavBar = (props) => {
           <a href="/musicians">Musicians</a>
         </li>
         <li className="navLink">
-          <a href="/musicians/new">Create Musician</a>
+          <a href="/musicians/new">Add a Musician</a>
         </li>
         <li className="navLink">
           <a href="/tuttis">Sections</a>
         </li>
         <li className="navLink">
-          <a href="/tuttis/new">Create Section</a>
+          <a href="/tuttis/new">Add a Section</a>
         </li>
         <li className="navLink">
           <a href="/symphonies" >Symphonies</a>
         </li>
         <li className="navLink">
-          <a href="/symphonies/new">Add Symphony</a>
+          <a href="/symphonies/new">Add a Symphony</a>
         </li>
 
       </ul>
