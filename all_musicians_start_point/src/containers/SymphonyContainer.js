@@ -49,6 +49,12 @@ class SymphonyContainer extends Component {
       window.location = '/symphonies';
     })
   }
+  handleUpdate(symphony){
+    const request = new Request();
+    request.patch('/api/symphonies/' + symphony.id, symphony).then(() => {
+      window.location = '/symphonies/' + symphony.id;
+    })
+  }
   render(){
     return (
       <Fragment>
@@ -56,8 +62,13 @@ class SymphonyContainer extends Component {
         <Route exact path='/symphonies/new' render={() =>{
           return <SymphonyForm musicians = {this.state.musicians} onCreate={this.handlePost}/>
         }} />
+        <Route exact path='/symphonies/:id/edit' render={(props) => {
+          const id = props.match.params.id;
+          const symphony = this.findSymphonyById(id);
+          return <SymphonyForm symphony={symphony}
+          onUpdate={this.handleUpdate}/>
+        }}/>
         <Route exact path='/symphonies/:id' render={(props) => {
-          // const id = props.match.params.id;
           const symphony = this.findSymphonyById(props.match.params.id);
           return <SymphonyDetail symphony={symphony} onDelete={this.handleDelete}/>
         }}/>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Symphony from './Symphony';
+import {Link} from 'react-router-dom';
 
 class SymphonyDetail extends Component {
   constructor(props){
@@ -16,6 +17,8 @@ class SymphonyDetail extends Component {
     const musicians = this.props.symphony.musicians.map((musician, index) => {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
+    const editUrl = "/symphonies/" + this.props.symphony.id + "/edit"
+    
     return (
       <div className="component">
       <Symphony symphony = {this.props.symphony}/>
@@ -24,6 +27,7 @@ class SymphonyDetail extends Component {
       {musicians}
       </ul>
       <button onClick={this.handleDelete}>Delete {this.props.symphony.composer} {this.props.symphony.number}</button>
+      <Link to={editUrl}><button type="button">Edit {this.props.symphony.composer} {this.props.symphony.number}</button></Link>
       </div>
     )
   }

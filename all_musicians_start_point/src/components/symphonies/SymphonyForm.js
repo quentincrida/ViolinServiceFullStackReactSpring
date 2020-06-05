@@ -17,6 +17,12 @@ class SymphonyForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    if(this.props.symphony){
+      this.setState({symphony: {... this.props.symphony}})
+    }
+  }
+
   handleChange(event){
     let propertyName = event.target.name;
     let symphony = this.state.symphony
@@ -26,24 +32,39 @@ class SymphonyForm extends Component {
   }
   handleSubmit(event){
     event.preventDefault();
+    if(this.state.symphony.id){
+      this.props.onUpdate(this.state.symphony)
+    } else {
     this.props.onCreate(this.state.symphony);
   }
+}
 
   // handleMusician(event){
-
+  //   const index = parseInt(event.target.value)
+  //   const selectedMusician = this.props.musicians[index]
+  //   let symphony = this.state.symphony;
+  //   symphony['musician'] = selectedMusician
+  //   this.setState({symphony: symphony})
   // }
 
 render() {
   // if(!this.props.musicians.length === 0){
   //   return <p>Composing symphonies.....</p>
   // }
+  let heading = "";
+  if(!this.props.symphony){
+    heading = "Add Symphony"
+  } else {
+    heading = "Edit " + this.props.symphony.composer + " " + this.props.symphony.number;
+  }
   return (
     <div>
+    <h3>{heading}</h3>
     <form onSubmit={this.handleSubmit}>
-    <input type="text" placeholder="Composer" name="composer" onChange={this.handleChange} value={this.state.composer}/>
-    <input type="number" placeholder="Symphony Number" name="number" onChange={this.handleChange} value={this.state.number}/>
-    <input type="text" placeholder="Key" name="key" onChange={this.handleChange} value={this.state.key}/>
-    <input type="text" placeholder="Opus" name="opus" onChange={this.handleChange} value={this.state.opus}/>
+    <input type="text" placeholder="Composer" name="composer" onChange={this.handleChange} value={this.state.symphony.composer}/>
+    <input type="number" placeholder="Symphony Number" name="number" onChange={this.handleChange} value={this.state.symphony.number}/>
+    <input type="text" placeholder="Key" name="key" onChange={this.handleChange} value={this.state.symphony.key}/>
+    <input type="text" placeholder="Opus" name="opus" onChange={this.handleChange} value={this.state.symphony.opus}/>
 
     <button type="submit">Save</button>
     </form>

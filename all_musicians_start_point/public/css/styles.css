@@ -23,8 +23,9 @@ li.component-item {
 }
 
 body {
-    height: 125vh;
-    font-family: sans-serif;
+  height: 125vh;
+  font-family: sans-serif;
+  background-image: url('/images/vintage-1318361.jpg')
   background-color: ghostWhite;
 }
 #root {
