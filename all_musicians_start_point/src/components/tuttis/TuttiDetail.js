@@ -23,8 +23,8 @@ class TuttiDetail extends Component {
       <ul>
       {musicians}
       </ul>
-      <button onClick={this.handleDelete}>Delete {this.props.tutti.name}**</button>
-      <p>** Remove all musicians before attempting to Delete a Section</p>
+      <button onClick={this.handleDelete} className="delete">Delete {this.props.tutti.name}**</button>
+      <p id="deleteNote">** Remove all musicians before attempting to Delete a Section</p>
       </div>
     )
   }

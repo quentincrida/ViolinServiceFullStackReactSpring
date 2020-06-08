@@ -18,8 +18,9 @@ const musicians = props.musicians.map((musician, index) => {
 	)
 })
 
+
 	return (
-		<ul className="component-list">{musicians}</ul>
+		<ul className="component-list">{musicians.sort()}</ul>
 
 	)
 }

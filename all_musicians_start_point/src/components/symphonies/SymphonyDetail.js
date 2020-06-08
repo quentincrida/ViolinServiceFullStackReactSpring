@@ -18,7 +18,7 @@ class SymphonyDetail extends Component {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
     const editUrl = "/symphonies/" + this.props.symphony.id + "/edit"
-    
+
     return (
       <div className="component">
       <Symphony symphony = {this.props.symphony}/>
@@ -26,7 +26,7 @@ class SymphonyDetail extends Component {
       <ul>
       {musicians}
       </ul>
-      <button onClick={this.handleDelete}>Delete {this.props.symphony.composer} {this.props.symphony.number}</button>
+      <button onClick={this.handleDelete} className="delete">Delete {this.props.symphony.composer} {this.props.symphony.number}</button>
       <Link to={editUrl}><button type="button">Edit {this.props.symphony.composer} {this.props.symphony.number}</button></Link>
       </div>
     )

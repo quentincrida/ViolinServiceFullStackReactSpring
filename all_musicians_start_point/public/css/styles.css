@@ -9,8 +9,13 @@
 }
 
 .name {
-  /* color: darkSlateGray; */
-  color: white;
+  color: yellow;
+}
+.delete {
+  color: red;
+}
+#deleteNote {
+  color: red;
 }
 
 ul.component-list {
@@ -25,7 +30,7 @@ li.component-item {
 .navLink {
     display: inline;
 
-}
+  }
 
 body {
 background-image: url('../images/orchestra-2098877_640.jpg');
