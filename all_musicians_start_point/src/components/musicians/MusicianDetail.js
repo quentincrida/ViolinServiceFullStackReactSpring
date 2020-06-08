@@ -65,7 +65,7 @@ class MusicianDetail extends Component {
         <input type="submit" value="Add Symphony"/>
       </form>
       <button onClick={this.handleDelete} className="delete">Delete {this.props.musician.firstName}</button>
-      <Link to={editUrl}><button type="button">Edit {this.props.musician.firstName}</button></Link>
+      <Link to={editUrl}><button type="button" className="edit">Edit {this.props.musician.firstName}</button></Link>
       </div>
     )
   }

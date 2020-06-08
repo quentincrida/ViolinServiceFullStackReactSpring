@@ -39,14 +39,6 @@ class SymphonyForm extends Component {
   }
 }
 
-  // handleMusician(event){
-  //   const index = parseInt(event.target.value)
-  //   const selectedMusician = this.props.musicians[index]
-  //   let symphony = this.state.symphony;
-  //   symphony['musician'] = selectedMusician
-  //   this.setState({symphony: symphony})
-  // }
-
 render() {
   // if(!this.props.musicians.length === 0){
   //   return <p>Composing symphonies.....</p>
@@ -59,7 +51,7 @@ render() {
   }
   return (
     <div>
-    <h3>{heading}</h3>
+    <h3 className="subHeading">{heading}</h3>
     <form onSubmit={this.handleSubmit}>
     <input type="text" placeholder="Composer" name="composer" onChange={this.handleChange} value={this.state.symphony.composer}/>
     <input type="number" placeholder="Symphony Number" name="number" onChange={this.handleChange} value={this.state.symphony.number}/>

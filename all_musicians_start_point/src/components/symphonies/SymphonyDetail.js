@@ -27,7 +27,7 @@ class SymphonyDetail extends Component {
       {musicians}
       </ul>
       <button onClick={this.handleDelete} className="delete">Delete {this.props.symphony.composer} {this.props.symphony.number}</button>
-      <Link to={editUrl}><button type="button">Edit {this.props.symphony.composer} {this.props.symphony.number}</button></Link>
+      <Link to={editUrl}><button type="button" className="edit">Edit {this.props.symphony.composer} {this.props.symphony.number}</button></Link>
       </div>
     )
   }

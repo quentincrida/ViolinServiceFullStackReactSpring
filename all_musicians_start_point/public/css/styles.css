@@ -3,19 +3,29 @@
   padding: 10px;
   width: 300px;
   border: 2px solid white;
+  border-radius: 5px;
   color: white;
   background-color: black;
   opacity: 60%;
 }
 
 .name {
-  color: yellow;
+  color: #ebeb34;
+  font-size: 24px;
+  font-family: cursive;
+  font-weight: bolder;
+  opacity: 100%;
+  text-align: center;
+
 }
 .delete {
-  color: red;
+  color: #fc0339;
 }
 #deleteNote {
   color: red;
+}
+.edit {
+  color: #2ac722;
 }
 
 ul.component-list {
@@ -24,11 +34,19 @@ ul.component-list {
 }
 
 li.component-item {
-  display: inline;
+  /* display: inline; */
+  display: flex;
 }
 
 .navLink {
+    font-size: 20px;
     display: inline;
+    background-color: #ebeb34;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px 5px 2px 5px ;
+    outline-color: green;
+
 
   }
 
@@ -39,7 +57,7 @@ opacity: 100%;
 background-repeat: no-repeat;
 background-color: ghostWhite;
 height: 125vh;
-font-family: sans-serif;
+font-family: sans-serif ;
 
 }
 #root {
@@ -48,12 +66,12 @@ font-family: sans-serif;
 }
 
 .main-image{
-  width:100%;
-  height:100%;
+  width:120%;
+  height:120%;
 }
 header {
-    background-color: grey;
-    position: fixed;
+    background-color: #e35327;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -61,8 +79,13 @@ header {
      display: flex;
      align-items: center;
 }
+.subHeading {
+  color: yellow;
+}
+}
 header * {
-    display: inline;
+    /* display: inline; */
+    display: flex;
 }
 header img {
   height: 80px;
@@ -75,11 +98,13 @@ header li {
 a {
     color: black;
 }
+footer {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  margin-left: 10px ;
+}
 
-/* .singlePirate {
-  display: flex;
-  justify-content: center;
-} */
 
 .button-link {
   font: bold 11px Arial;

@@ -16,6 +16,7 @@ const MainContainer = () => {
         <Route path="/tuttis" component={TuttiContainer}/>
         <Route path="/symphonies" component={SymphonyContainer}/>
       </Switch>
+      <footer>&copy; Quentin Crida 2020</footer>
       </Fragment>
       </Router>
     )

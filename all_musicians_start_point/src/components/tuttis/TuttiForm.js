@@ -38,6 +38,7 @@ class TuttiForm extends Component {
 
     return (
       <div>
+      <h3 className="subHeading">Add a Section</h3>
       <form onSubmit={this.handleSubmit}>
       <input type="text" placeholder="Name" name="name" onChange={this.handleChange}
       value ={this.state.name} />

@@ -68,14 +68,14 @@ class MusicianForm extends Component {
     let heading = "";
 
     if(!this.props.musician){
-      heading = "Create Musician"
+      heading = "Create a Musician"
     } else {
       heading = "Edit " + this.props.musician.firstName;
     }
 
     return (
       <div>
-      <h3>{heading}</h3>
+      <h3 className="subHeading">{heading}</h3>
         <form onSubmit={this.handleSubmit}>
         <input type="text" placeholder="First Name"
         name="firstName" onChange={this.handleChange}

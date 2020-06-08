@@ -11,7 +11,7 @@ const Musician = (props) => {
   return (
     <Fragment>
     <Link to = {url} className="name">
-    {props.musician.firstName} {props.musician.lastName}
+     {props.musician.lastName}, {props.musician.firstName}
     </Link>
     <p>Age: {props.musician.age}</p>
     <p>Instrument: {props.musician.instrument}</p>
