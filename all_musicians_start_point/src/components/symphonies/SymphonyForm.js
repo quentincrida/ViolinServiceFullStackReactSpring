@@ -45,7 +45,7 @@ render() {
   // }
   let heading = "";
   if(!this.props.symphony){
-    heading = "Add Symphony"
+    heading = "Add a Symphony"
   } else {
     heading = "Edit " + this.props.symphony.composer + " " + this.props.symphony.number;
   }
