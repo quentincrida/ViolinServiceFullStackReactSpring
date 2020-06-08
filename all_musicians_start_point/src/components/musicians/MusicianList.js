@@ -7,7 +7,7 @@ const MusicianList = (props) => {
 		return (<p>Tuning musicians...</p>)
 	}
 
-	
+
 const musicians = props.musicians.map((musician, index) => {
 	return (
 		<li key={index} className="component-item">
@@ -16,8 +16,8 @@ const musicians = props.musicians.map((musician, index) => {
 		</div>
 		</li>
 	)
-
 })
+
 	return (
 		<ul className="component-list">{musicians}</ul>
 

@@ -2,11 +2,15 @@
   margin: 20px;
   padding: 10px;
   width: 300px;
-  border: 1px solid black;
+  border: 2px solid white;
+  color: white;
+  background-color: black;
+  opacity: 60%;
 }
 
 .name {
-  color: darkSlateGray;
+  /* color: darkSlateGray; */
+  color: white;
 }
 
 ul.component-list {
@@ -20,13 +24,18 @@ li.component-item {
 
 .navLink {
     display: inline;
+
 }
 
 body {
-  height: 125vh;
-  font-family: sans-serif;
-  background-image: url('/images/vintage-1318361.jpg')
-  background-color: ghostWhite;
+background-image: url('../images/orchestra-2098877_640.jpg');
+background-size: 100%;
+opacity: 100%;
+background-repeat: no-repeat;
+background-color: ghostWhite;
+height: 125vh;
+font-family: sans-serif;
+
 }
 #root {
   margin-top: 80px;
@@ -38,7 +47,7 @@ body {
   height:100%;
 }
 header {
-    background-color: white;
+    background-color: grey;
     position: fixed;
     top: 0;
     left: 0;
@@ -62,10 +71,10 @@ a {
     color: black;
 }
 
-.singlePirate {
+/* .singlePirate {
   display: flex;
   justify-content: center;
-}
+} */
 
 .button-link {
   font: bold 11px Arial;
