@@ -5,8 +5,7 @@
   border: 2px solid white;
   border-radius: 5px;
   color: white;
-  background-color: black;
-  opacity: 60%;
+  background: rgba(36, 35, 34, 0.5);
 }
 
 .name {
@@ -14,7 +13,6 @@
   font-size: 24px;
   font-family: cursive;
   font-weight: bolder;
-  opacity: 100%;
   text-align: center;
 
 }
@@ -31,11 +29,13 @@
 ul.component-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 li.component-item {
-  /* display: inline; */
+  display: inline;
   display: flex;
+
 }
 
 .navLink {
@@ -46,8 +46,24 @@ li.component-item {
     border-radius: 5px;
     padding: 2px 5px 2px 5px ;
     outline-color: green;
+  }
 
+  input {
+    font-size: 18px;
+    background-color: #f5f3f0;
+    color: black;
+  }
 
+  select {
+    font: 18px Arial;
+    text-decoration: none;
+    background-color: #f5f3f0;
+    color: black;
+    padding: 2px 6px 2px 6px;
+    /* border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC; */
   }
 
 body {
@@ -84,8 +100,8 @@ header {
 }
 }
 header * {
-    /* display: inline; */
-    display: flex;
+    display: inline;
+    /* display: flex; */
 }
 header img {
   height: 80px;
@@ -106,14 +122,14 @@ footer {
 }
 
 
-.button-link {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
+button {
+  font: 18px Arial;
+  text-decoration: ;
+  /* background-color: #EEEEEE; */
+  /* color: #333333; */
+  /* padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC; */
 }
