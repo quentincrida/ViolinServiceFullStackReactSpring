@@ -31,12 +31,12 @@ ul.component-list {
   flex-wrap: wrap;
   align-items: center;
 }
-
+/* 
 li.component-item {
   display: inline;
   display: flex;
 
-}
+} */
 
 .navLink {
     font-size: 20px;

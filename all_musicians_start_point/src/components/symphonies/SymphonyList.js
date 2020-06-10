@@ -7,6 +7,7 @@ const SymphonyList = (props) => {
 		return (<p>Waiting on symphonies....</p>)
 	}
 	const symphonies = props.symphonies.map((symphony, index) => {
+
 			return (
 				<li key={index} className="component-item">
 			<div className="component">

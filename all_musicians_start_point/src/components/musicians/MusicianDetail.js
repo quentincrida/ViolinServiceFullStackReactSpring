@@ -36,12 +36,15 @@ class MusicianDetail extends Component {
     if(!this.props.musician){
     return "Musicians are loading..."
     }
+    
     const symphonies = this.props.musician.symphonies.map((symphony, index) => {
       return <li key={index}>{symphony.composer} {symphony.number}<button onClick={() => this.deleteSymphony(index)}
       >Delete</button>
       </li>
     })
+
     const editUrl = "/musicians/" + this.props.musician.id + "/edit"
+
     const symphonyOptions = this.props.symphonies.map((symphony, index) => {
       if(!this.musicianHasSymphony(symphony)){
         return (
