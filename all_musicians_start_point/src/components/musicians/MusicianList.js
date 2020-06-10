@@ -9,7 +9,6 @@ const MusicianList = (props) => {
 
 
 const musicians = props.musicians.map((musician, index) => {
-	// return (
 // 	props.musicians.sort(function(a, b){
 //  var lastNameA=a.lastName.toLowerCase(), lastNameB=b.lastName.toLowerCase();
 //  if (lastNameA < lastNameB) //sort string ascending
