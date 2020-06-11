@@ -9,7 +9,7 @@ const url ="/symphonies/" + props.symphony.id;
   return (
     <Fragment>
         <Link to ={url} className="name">
-          {props.symphony.composer} {props.symphony.number}
+          {props.symphony.composer} #{props.symphony.number}
         </Link>
       <p>Symphony Number: {props.symphony.number}</p>
       <p>Key: {props.symphony.key}</p>

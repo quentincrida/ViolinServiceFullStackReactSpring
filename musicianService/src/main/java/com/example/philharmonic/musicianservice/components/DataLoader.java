@@ -29,11 +29,11 @@ public class DataLoader implements ApplicationRunner {
         Tutti viola = new Tutti("Violas");
         tuttiRepository.save(viola);
 
-        Tutti violin2 = new Tutti("First Violins");
-        tuttiRepository.save(violin2);
+        Tutti violin1 = new Tutti("First Violins");
+        tuttiRepository.save(violin1);
 
-        Tutti violin3 = new Tutti("Second Violins");
-        tuttiRepository.save(violin3);
+        Tutti violin2 = new Tutti("Second Violins");
+        tuttiRepository.save(violin2);
 
         Tutti cello = new Tutti("Violoncellos");
         tuttiRepository.save(cello);
@@ -41,19 +41,28 @@ public class DataLoader implements ApplicationRunner {
         Tutti bass = new Tutti("Basses");
         tuttiRepository.save(bass);
 
-        Musician quentin = new Musician("Quentin", "Crida", 48,"Viola", "Principal", viola);
+        Tutti flute = new Tutti("Flutes");
+        tuttiRepository.save(flute);
+
+        Tutti trumpet = new Tutti("Trumpets");
+        tuttiRepository.save(trumpet);
+
+        Tutti percussion = new Tutti("Percussion");
+        tuttiRepository.save(percussion);
+
+        Musician quentin = new Musician("Seb", "Crida", 48,"Viola", "Principal", viola);
         musicianRepository.save(quentin);
 
-        Musician este = new Musician("Este", "Visser", 43,"Violin", "Principal", violin2);
+        Musician este = new Musician("Virginia", "Visser", 43,"Violin", "Principal", violin1);
         musicianRepository.save(este);
 
-        Musician emile = new Musician("Emile", "de Roubaix", 43,"Violin", "Rank and File", violin3);
+        Musician emile = new Musician("Steven", "de Roubaix", 43,"Violin", "Rank and File", violin2);
         musicianRepository.save(emile);
 
-        Musician peter = new Musician("Peter", "Martens", 48,"Cello", "Sub Principal", cello);
+        Musician peter = new Musician("Mary", "Martens", 48,"Cello", "Sub Principal", cello);
         musicianRepository.save(peter);
 
-        Musician leon = new Musician("Leon", "Bosch", 55, "Bass", "Principal", bass);
+        Musician leon = new Musician("Bob", "Bosch", 55, "Bass", "Principal", bass);
         musicianRepository.save(leon);
 
         Symphony beethoven = new Symphony("Beethoven", 5, "C minor", "67");
