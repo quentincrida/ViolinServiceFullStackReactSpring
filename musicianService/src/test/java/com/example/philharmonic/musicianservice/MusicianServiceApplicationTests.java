@@ -39,7 +39,7 @@ public class MusicianServiceApplicationTests {
 
     @Test
     public void addMusiciansToSymphonies(){
-        Tutti tutti = new Tutti("Firsts");
+        Tutti tutti = new Tutti( "Firsts");
         tuttiRepository.save(tutti);
         Musician leader = new Musician("Jurgs", "Schwietering", 28, "Violin", "Leader", tutti);
         musicianRepository.save(leader);

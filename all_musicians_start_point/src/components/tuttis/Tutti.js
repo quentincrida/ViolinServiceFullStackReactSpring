@@ -9,7 +9,7 @@ const Tutti = (props) => {
 		return (
 			<Fragment>
 			<Link to={url} className="name">
-						{props.tutti.name}
+						{props.tutti.name} 
 			</Link>
 			</Fragment>
 		)

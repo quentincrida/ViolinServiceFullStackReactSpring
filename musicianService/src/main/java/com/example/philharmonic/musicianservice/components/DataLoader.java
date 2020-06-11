@@ -26,7 +26,7 @@ public class DataLoader implements ApplicationRunner {
 
     }
     public void run(ApplicationArguments args) {
-        Tutti viola = new Tutti("Violas");
+        Tutti viola = new Tutti( "Violas");
         tuttiRepository.save(viola);
 
         Tutti violin1 = new Tutti("First Violins");
@@ -41,10 +41,10 @@ public class DataLoader implements ApplicationRunner {
         Tutti bass = new Tutti("Basses");
         tuttiRepository.save(bass);
 
-        Tutti flute = new Tutti("Flutes");
+        Tutti flute = new Tutti( "Flutes");
         tuttiRepository.save(flute);
 
-        Tutti trumpet = new Tutti("Trumpets");
+        Tutti trumpet = new Tutti( "Trumpets");
         tuttiRepository.save(trumpet);
 
         Tutti percussion = new Tutti("Percussion");

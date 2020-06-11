@@ -5,7 +5,8 @@ class TuttiForm extends Component {
     super(props);
     this.state = {
       tutti: {
-        name: ""
+        name: "",
+        subSection: ""
         // musician: null
       }
     }
@@ -42,7 +43,6 @@ class TuttiForm extends Component {
       <form onSubmit={this.handleSubmit}>
       <input type="text" placeholder="Name" name="name" onChange={this.handleChange}
       value ={this.state.name} />
-
       <button type="submit">Save</button>
       </form>
       </div>
