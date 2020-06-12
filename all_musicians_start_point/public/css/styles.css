@@ -1,7 +1,17 @@
 .component {
   margin: 20px;
   padding: 10px;
-  width: 350px;
+  width: 250px;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  background: rgba(36, 35, 34, 0.5);
+}
+
+.widecomponent {
+  margin: 20px;
+  padding: 10px;
+  width: 415px;
   border: 2px solid white;
   border-radius: 5px;
   color: white;
@@ -18,6 +28,8 @@
 }
 .delete {
   color: #fc0339;
+  margin: 20px;
+
 }
 #deleteNote {
   color: red;
