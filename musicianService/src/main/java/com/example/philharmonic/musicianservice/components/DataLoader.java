@@ -1,9 +1,9 @@
 package com.example.philharmonic.musicianservice.components;
 
-import com.example.philharmonic.musicianservice.models.Symphony;
+import com.example.philharmonic.musicianservice.models.Composition;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
-import com.example.philharmonic.musicianservice.repositories.SymphonyRepository;
+import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,20 +20,22 @@ public class DataLoader implements ApplicationRunner {
     TuttiRepository tuttiRepository;
 
     @Autowired
-    SymphonyRepository symphonyRepository;
+    CompositionRepository compositionRepository;
 
     public DataLoader(){
 
     }
     public void run(ApplicationArguments args) {
-        Tutti viola = new Tutti( "Violas");
-        tuttiRepository.save(viola);
+
 
         Tutti violin1 = new Tutti("First Violins");
         tuttiRepository.save(violin1);
 
         Tutti violin2 = new Tutti("Second Violins");
         tuttiRepository.save(violin2);
+
+        Tutti viola = new Tutti( "Violas");
+        tuttiRepository.save(viola);
 
         Tutti cello = new Tutti("Violoncellos");
         tuttiRepository.save(cello);
@@ -65,42 +67,51 @@ public class DataLoader implements ApplicationRunner {
         Musician leon = new Musician("Bob", "Bosch", 55, "Bass", "Principal", bass);
         musicianRepository.save(leon);
 
-        Symphony beethoven = new Symphony("Beethoven", 5, "C minor", "67");
-        symphonyRepository.save(beethoven);
+        Musician debbie = new Musician("Debbie", "Carousel", 25, "Flute", "Third Flute", flute);
+        musicianRepository.save(debbie);
 
-        Symphony mozart = new Symphony("Mozart", 41," C Major", "K.551");
-        symphonyRepository.save(mozart);
+        Musician mark = new Musician("Mark", "Johnson", 55, "Trumpet", "Principal", trumpet);
+        musicianRepository.save(mark);
 
-        Symphony haydn = new Symphony("Haydn", 45, "F sharp minor", "Hb: ?");
-        symphonyRepository.save(haydn);
+        Musician bill = new Musician("Bill", "Belgium", 55, "Timpani", "Principal", percussion);
+        musicianRepository.save(bill);
 
-        Symphony shostakovich = new Symphony("Shostakovich", 5, "D minor", "47");
-        symphonyRepository.save(shostakovich);
+        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67");
+        compositionRepository.save(beethoven);
 
-        Symphony vivaldi = new Symphony("Vivaldi", 0, "C Major", "111a");
-        symphonyRepository.save(vivaldi);
+        Composition mozart = new Composition("Mozart", "Sinfonia Concertante","E flat Major", "K.364");
+        compositionRepository.save(mozart);
 
-        quentin.addSymphony(beethoven);
-        quentin.addSymphony(mozart);
+        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?");
+        compositionRepository.save(haydn);
+
+        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47");
+        compositionRepository.save(shostakovich);
+
+        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456");
+        compositionRepository.save(vivaldi);
+
+        quentin.addComposition(beethoven);
+        quentin.addComposition(mozart);
         musicianRepository.save(quentin);
 
         haydn.addMusician(este);
-        symphonyRepository.save(haydn);
+        compositionRepository.save(haydn);
 
         vivaldi.addMusician(emile);
         vivaldi.addMusician(peter);
-        symphonyRepository.save(vivaldi);
+        compositionRepository.save(vivaldi);
 
         shostakovich.addMusician(leon);
         shostakovich.addMusician(quentin);
-        symphonyRepository.save(shostakovich);
+        compositionRepository.save(shostakovich);
 
-        este.addSymphony(shostakovich);
-        este.addSymphony(beethoven);
+        este.addComposition(shostakovich);
+        este.addComposition(beethoven);
         musicianRepository.save(este);
 
-//        bass.addSymphony(shostakovich);
-//        bass.addSymphony(beethoven);
+//        bass.addComposition(shostakovich);
+//        bass.addComposition(beethoven);
 //        violinRepository.save(bass);
     }
 }

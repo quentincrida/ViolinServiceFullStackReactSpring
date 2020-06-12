@@ -6,7 +6,7 @@ class MusicianDetail extends Component {
   constructor(props){
    super(props)
    this.handleDelete = this.handleDelete.bind(this);
-   this.deleteSymphony = this.deleteSymphony.bind(this);
+   this.deleteComposition = this.deleteComposition.bind(this);
    this.handleSubmit = this.handleSubmit.bind(this);
  }
 
@@ -15,20 +15,20 @@ class MusicianDetail extends Component {
    this.props.onDelete(this.props.musician.id)
  }
 
- deleteSymphony(symphonyIndex){
-   this.props.musician.symphonies.splice(symphonyIndex, 1)
+ deleteComposition(compositionIndex){
+   this.props.musician.compositions.splice(compositionIndex, 1)
    this.props.onUpdate(this.props.musician)
  }
- musicianHasSymphony(symphony){
-   return this.props.musician.symphonies.some((musicianSymphony) => {
-     return symphony.id === musicianSymphony.id
+ musicianHasComposition(composition){
+   return this.props.musician.compositions.some((musicianComposition) => {
+     return composition.id === musicianComposition.id
    })
  }
  handleSubmit(event){
    event.preventDefault();
-   const index = parseInt(event.target.symphonies.value)
-   const symphony = this.props.symphonies[index]
-   this.props.musician.symphonies.push(symphony)
+   const index = parseInt(event.target.compositions.value)
+   const composition = this.props.compositions[index]
+   this.props.musician.compositions.push(composition)
    this.props.onUpdate(this.props.musician);
  }
 
@@ -36,19 +36,19 @@ class MusicianDetail extends Component {
     if(!this.props.musician){
     return "Musicians are loading..."
     }
-    
-    const symphonies = this.props.musician.symphonies.map((symphony, index) => {
-      return <li key={index}>{symphony.composer} {symphony.number}<button onClick={() => this.deleteSymphony(index)}
+
+    const compositions = this.props.musician.compositions.map((composition, index) => {
+      return <li key={index}>{composition.composer} {composition.title}<button onClick={() => this.deleteComposition(index)}
       >Delete</button>
       </li>
     })
 
     const editUrl = "/musicians/" + this.props.musician.id + "/edit"
 
-    const symphonyOptions = this.props.symphonies.map((symphony, index) => {
-      if(!this.musicianHasSymphony(symphony)){
+    const compositionOptions = this.props.compositions.map((composition, index) => {
+      if(!this.musicianHasComposition(composition)){
         return (
-          <option key={index} value={index}>{symphony.composer} {symphony.number}</option>
+          <option key={index} value={index}>{composition.composer} {composition.title}</option>
         )
       } else {
         return null
@@ -58,14 +58,14 @@ class MusicianDetail extends Component {
     return (
       <div className = "component">
       <Musician musician = {this.props.musician}/>
-      <p>Symphonies: </p>
+      <p>Compositions: </p>
       <ul>
-      {symphonies}
+      {compositions}
       </ul>
       <form onSubmit={this.handleSubmit}>
-        <select name="symphonies">{symphonyOptions}
+        <select name="compositions">{compositionOptions}
         </select>
-        <input type="submit" value="Add Symphony"/>
+        <input type="submit" value="Add Composition"/>
       </form>
       <button onClick={this.handleDelete} className="delete">Delete {this.props.musician.firstName}</button>
       <Link to={editUrl}><button type="button" className="edit">Edit {this.props.musician.firstName}</button></Link>

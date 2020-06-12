@@ -1,7 +1,7 @@
 .component {
   margin: 20px;
   padding: 10px;
-  width: 300px;
+  width: 350px;
   border: 2px solid white;
   border-radius: 5px;
   color: white;
@@ -35,6 +35,7 @@ ul.component-list {
 li.component-item {
   display: inline;
   display: flex;
+  /* flex-wrap: wrap; */
 
 }
 

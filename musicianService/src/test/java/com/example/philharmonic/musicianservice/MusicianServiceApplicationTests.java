@@ -1,9 +1,9 @@
 package com.example.philharmonic.musicianservice;
 
-import com.example.philharmonic.musicianservice.models.Symphony;
+import com.example.philharmonic.musicianservice.models.Composition;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
-import com.example.philharmonic.musicianservice.repositories.SymphonyRepository;
+import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ public class MusicianServiceApplicationTests {
     MusicianRepository musicianRepository;
 
     @Autowired
-    SymphonyRepository symphonyRepository;
+    CompositionRepository compositionRepository;
 
     @Test
     public void contextLoads(){}
@@ -38,33 +38,33 @@ public class MusicianServiceApplicationTests {
     }
 
     @Test
-    public void addMusiciansToSymphonies(){
+    public void addMusiciansToCompositions(){
         Tutti tutti = new Tutti( "Firsts");
         tuttiRepository.save(tutti);
         Musician leader = new Musician("Jurgs", "Schwietering", 28, "Violin", "Leader", tutti);
         musicianRepository.save(leader);
-        Symphony symphony = new Symphony("Beethoven", 1, "C Major", "10");
-        symphonyRepository.save(symphony);
+        Composition composition = new Composition("Beethoven", "Triple Concerto", "C Major", "10");
+        compositionRepository.save(composition);
 
         Tutti tutti2 = new Tutti("Seconds");
         tuttiRepository.save(tutti2);
         Musician violin2 = new Musician("Wendy", "Schwietering", 6, "violin", "Sub Principal",tutti2);
         musicianRepository.save(violin2);
-        Symphony symphony2 = new Symphony("Mozart", 14, "F monor", "K. 23");
-        symphonyRepository.save(symphony2);
+        Composition composition2 = new Composition("Mozart", "Symphony Nr 1", "F minor", "K. 23");
+        compositionRepository.save(composition2);
 
 
         Tutti tutti3 = new Tutti("Firsts");
         tuttiRepository.save(tutti3);
         Musician violin3 = new Musician("Simos", "Aering", 30, "Violin", "Principal", tutti3);
         musicianRepository.save(violin3);
-        Symphony symphony3 = new Symphony("Shostakovich", 15, "D Major", "152");
-        symphonyRepository.save(symphony3);
+        Composition composition3 = new Composition("Shostakovich", "The Nose", "D Major", "152");
+        compositionRepository.save(composition3);
 
 
 
-        symphony.addMusician(leader);
-        symphony.addMusician(violin2);
-        symphony.addMusician(violin3);
+        composition.addMusician(leader);
+        composition.addMusician(violin2);
+        composition.addMusician(violin3);
     }
 }

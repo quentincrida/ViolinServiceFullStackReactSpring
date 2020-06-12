@@ -46,12 +46,12 @@ public class Musician implements Serializable {
                     nullable = false, updatable = false)
             },
             inverseJoinColumns = { @JoinColumn(
-                    name = "symphony_id",
+                    name = "composition_id",
                     nullable = false,
                     updatable = false )
             }
     )
-    private List<Symphony> symphonies;
+    private List<Composition> compositions;
 
     public Musician(String firstName, String lastName, int age, String instrument, String position, Tutti tutti) {
         this.firstName = firstName;
@@ -60,7 +60,7 @@ public class Musician implements Serializable {
         this.instrument = instrument;
         this.position = position;
         this.tutti = tutti;
-        this.symphonies = new ArrayList<>();
+        this.compositions = new ArrayList<>();
     }
     public Musician(){}
 
@@ -120,15 +120,15 @@ public class Musician implements Serializable {
         this.tutti = tutti;
     }
 
-    public List<Symphony> getSymphonies() {return symphonies;}
+    public List<Composition> getCompositions() {return compositions;}
 
-    public void setSymphonies(List<Symphony> symphonies) {
-        this.symphonies = symphonies;
+    public void setCompositions(List<Composition> compositions) {
+        this.compositions = compositions;
     }
 
 
 
-    public void addSymphony(Symphony symphony){
-        this.symphonies.add(symphony);
+    public void addComposition(Composition composition){
+        this.compositions.add(composition);
     }
 }

@@ -11,7 +11,7 @@ class MusicianContainer extends Component {
     this.state = {
       musicians: [],
       tuttis: [],
-      symphonies: []
+      compositions: []
     }
     this.findMusicianById = this.findMusicianById.bind(this);
   }
@@ -21,13 +21,13 @@ class MusicianContainer extends Component {
 
     const musicianPromise = request.get('/api/musicians');
     const tuttiPromise = request.get('/api/tuttis');
-    const symphonyPromise = request.get('/api/symphonies');
+    const compositionPromise = request.get('/api/compositions');
 
-    Promise.all([musicianPromise, tuttiPromise, symphonyPromise]).then((data) => {
+    Promise.all([musicianPromise, tuttiPromise, compositionPromise]).then((data) => {
       this.setState({
         musicians: data[0],
         tuttis: data[1],
-        symphonies: data[2]
+        compositions: data[2]
       })
     })
     }
@@ -72,7 +72,7 @@ class MusicianContainer extends Component {
           const id = props.match.params.id;
           const musician = this.findMusicianById(id);
           return <MusicianForm musician={musician}
-          tuttis={this.state.tuttis} symphonies={this.state.symphonies} onUpdate={this.handleUpdate}/>
+          tuttis={this.state.tuttis} compositions={this.state.compositions} onUpdate={this.handleUpdate}/>
         }}
         />
         <Route exact path="/musicians/:id" render={(props) =>{
@@ -81,7 +81,7 @@ class MusicianContainer extends Component {
           return <MusicianDetail musician={musician}
           onDelete={this.handleDelete}
           onUpdate={this.handleUpdate}
-          symphonies={this.state.symphonies}/>
+          compositions={this.state.compositions}/>
         }}/>
         <Route render={(props) => {
           return <MusicianList musicians={this.state.musicians}/>

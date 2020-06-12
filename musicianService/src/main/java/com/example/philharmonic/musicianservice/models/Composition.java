@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "symphonies")
+@Table(name = "compositions")
 
-public class Symphony {
+public class Composition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,8 +18,8 @@ public class Symphony {
     @Column(name="composer")
     private String composer;
 
-    @Column(name="number")
-    private int number;
+    @Column(name="title")
+    private String title;
 
     @Column(name="key")
     private String key;
@@ -27,11 +27,11 @@ public class Symphony {
     @Column(name="opus")
     private String opus;
 
-    @JsonIgnoreProperties(value="symphonies")
+    @JsonIgnoreProperties(value="compositions")
     @ManyToMany
     @JoinTable(
-           name = "musicians_symphonies",
-           joinColumns = {@JoinColumn(name = "symphony_id",
+           name = "musicians_compositions",
+           joinColumns = {@JoinColumn(name = "composition_id",
            nullable = false, updatable = false)
            },
            inverseJoinColumns = {@JoinColumn(name = "musician_id",
@@ -46,15 +46,15 @@ public class Symphony {
         this.musicians = musicians;
     }
 
-    public Symphony(String composer, int number, String key, String opus) {
+    public Composition(String composer, String title, String key, String opus) {
         this.composer = composer;
-        this.number = number;
+        this.title = title;
         this.key = key;
         this.opus = opus;
         this.musicians  = new ArrayList<Musician>();
     }
 
-    public Symphony(){}
+    public Composition(){}
 
     public String getComposer() {
         return composer;
@@ -84,12 +84,12 @@ public class Symphony {
         this.id = id;
     }
 
-    public int getNumber() {
-        return number;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getKey() {

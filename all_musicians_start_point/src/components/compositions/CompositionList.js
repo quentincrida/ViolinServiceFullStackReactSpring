@@ -1,13 +1,13 @@
 import React from 'react';
-import Symphony from './Symphony.js';
+import Composition from './Composition.js';
 
 
-const SymphonyList = (props) => {
-	if(props.symphonies.length === 0) {
-		return (<p>Waiting on symphonies....</p>)
+const CompositionList = (props) => {
+	if(props.compositions.length === 0) {
+		return (<p>Waiting on compositions....</p>)
 	}
 
-	const sortedSymphonies = props.symphonies.sort(function(a, b){
+	const sortedCompositions = props.compositions.sort(function(a, b){
 		var composerA=a.composer.toLowerCase(), composerB=b.composer.toLowerCase();
 		if (composerA < composerB) //sort string ascending
 		 return -1;
@@ -15,15 +15,15 @@ const SymphonyList = (props) => {
 		 return 1;
 		return 0; //default return value (no sorting)
 	 });
-	
 
 
-	const symphonies = props.symphonies.map((symphony, index) => {
+
+	const compositions = props.compositions.map((composition, index) => {
 
 			return (
 				<li key={index} className="component-item">
 			<div className="component">
-				<Symphony symphony={symphony} />
+				<Composition composition={composition} />
 				</div>
 			</li>
 		)
@@ -31,9 +31,9 @@ const SymphonyList = (props) => {
 
 	return (
 		<ul className="component-list">
-			{symphonies}
+			{compositions}
 		</ul>
 
 	)
 }
- export default SymphonyList;
+ export default CompositionList;
