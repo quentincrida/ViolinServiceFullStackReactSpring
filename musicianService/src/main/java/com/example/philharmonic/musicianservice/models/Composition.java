@@ -28,6 +28,11 @@ public class Composition {
     private String opus;
 
     @JsonIgnoreProperties(value="compositions")
+    @ManyToOne
+    @JoinColumn(name="concert_id", nullable=false)
+    private Concert concert;
+
+    @JsonIgnoreProperties(value="compositions")
     @ManyToMany
     @JoinTable(
            name = "musicians_compositions",
@@ -39,6 +44,8 @@ public class Composition {
            })
 
     private List<Musician> musicians;
+
+
 
 
 
