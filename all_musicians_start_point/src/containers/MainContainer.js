@@ -9,7 +9,9 @@ const MainContainer = () => {
 
     return (
       <Router>
+
       <Fragment>
+        <h1>The Musicians Booking App</h1>
       <NavBar/>
       <Switch>
         <Route path="/musicians" component={MusicianContainer}/>
