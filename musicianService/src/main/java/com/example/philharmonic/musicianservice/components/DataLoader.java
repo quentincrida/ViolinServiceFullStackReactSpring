@@ -63,8 +63,8 @@ public class DataLoader implements ApplicationRunner {
         Tutti percussion = new Tutti("Percussion");
         tuttiRepository.save(percussion);
 
-        Musician quentin = new Musician("Seb", "Crida", 48, "Viola", "Principal", viola);
-        musicianRepository.save(quentin);
+        Musician seb = new Musician("Seb", "Crida", 48, "Viola", "Principal", viola);
+        musicianRepository.save(seb);
 
         Musician este = new Musician("Virginia", "Visser", 43, "Violin", "Principal", violin1);
         musicianRepository.save(este);
@@ -110,9 +110,9 @@ public class DataLoader implements ApplicationRunner {
         Concert impressionists = new Concert("La Valse", "City Halls, Glasgow", OffsetDateTime.of(2020,8,27,19,45,0,0, ZoneOffset.ofHours(+1)));
         concertRepository.save(impressionists);
 
-        quentin.addComposition(beethoven);
-        quentin.addComposition(mozart);
-        musicianRepository.save(quentin);
+        seb.addComposition(beethoven);
+        seb.addComposition(mozart);
+        musicianRepository.save(seb);
 
         haydn.addMusician(este);
         compositionRepository.save(haydn);
@@ -122,7 +122,7 @@ public class DataLoader implements ApplicationRunner {
         compositionRepository.save(vivaldi);
 
         shostakovich.addMusician(leon);
-        shostakovich.addMusician(quentin);
+        shostakovich.addMusician(seb);
         compositionRepository.save(shostakovich);
 
         este.addComposition(shostakovich);
@@ -135,7 +135,8 @@ public class DataLoader implements ApplicationRunner {
         debussy.addConcert(impressionists);
         compositionRepository.save(debussy);
 
-
+        impressionists.addComposition(haydn);
+        concertRepository.save(impressionists);
 
     }
 }
