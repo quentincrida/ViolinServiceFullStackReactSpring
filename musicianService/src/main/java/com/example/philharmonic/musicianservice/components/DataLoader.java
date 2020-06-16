@@ -132,6 +132,9 @@ public class DataLoader implements ApplicationRunner {
         favouriteTunes.addComposition(shostakovich);
         concertRepository.save(favouriteTunes);
 
+        shostakovich.addConcert(impressionists);
+        compositionRepository.save(shostakovich);
+
         debussy.addConcert(impressionists);
         compositionRepository.save(debussy);
 
