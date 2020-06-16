@@ -27,10 +27,23 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
-    @JsonIgnoreProperties(value="compositions")
-    @ManyToOne
-    @JoinColumn(name="concert_id", nullable=false)
-    private Concert concert;
+//    @JsonIgnoreProperties(value="compositions")
+//    @ManyToMany
+//    @JoinTable(
+//            name= "compositions_concerts",
+//            joinColumns =  {@JoinColumn(
+//                    name = "concert_id",
+//                    nullable = false,
+//                    updatable= false)
+//            },
+//            inverseJoinColumns = {@JoinColumn(
+//                    name = "composition_id",
+//                    nullable = false,
+//                    updatable = false
+//            )}
+//    )
+//    private List<Concert> concerts;
+
 
     @JsonIgnoreProperties(value="compositions")
     @ManyToMany
@@ -110,4 +123,7 @@ public class Composition {
     public void addMusician(Musician musician){
         this.musicians.add(musician);
     }
+//    public void addConcert(Concert concert){
+//        this.concerts.add(concert);
+//    }
 }

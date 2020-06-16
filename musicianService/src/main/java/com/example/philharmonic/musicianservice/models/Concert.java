@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Entity
@@ -13,30 +14,46 @@ public class Concert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name="venue")
+    @Column(name = "venue")
     private String venue;
 
-    @Column(name="date")
-    private LocalDate date;
+    @Column(name = "details")
+    private OffsetDateTime details;
+//
+//    @Column(name = "time")
+//    private String time;
 
-    @Column(name="time")
-    private String time;
+//    @JsonIgnoreProperties(value = "concert")
+//    @ManyToMany(mappedBy = "concert", fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "concerts_compositions",
+//            joinColumns = {@JoinColumn(
+//                    name = "concert_id",
+//                    nullable = false,
+//                    updatable = false)
+//            },
+//            inverseJoinColumns = {@JoinColumn(
+//                    name = "composition_id",
+//                    nullable = false,
+//                    updatable = false)
+//            }
+//    )
+//    private List<Composition> compositions;
 
-    @JsonIgnoreProperties(value="concert")
-    @OneToMany(mappedBy = "concert", fetch = FetchType.LAZY)
-    private List<Composition> compositions;
-
-    public Concert(String title, String venue, LocalDate date, String time) {
+    public Concert(String title, String venue, OffsetDateTime details) {
         this.title = title;
         this.venue = venue;
-        this.date = date;
-        this.time = time;
+        this.details = details;
+//        this.time = time;
     }
 
-    public Concert() {};
+    public Concert() {
+    }
+
+    ;
 
     public Long getId() {
         return id;
@@ -62,27 +79,26 @@ public class Concert {
         this.venue = venue;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public OffsetDateTime getDetails() {
+        return details;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDetails(OffsetDateTime details) {
+        this.details = details;
     }
 
-    public String getTime() {
-        return time;
-    }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public List<Composition> getCompositions() {
-        return compositions;
-    }
-
-    public void setCompositions(List<Composition> compositions) {
-        this.compositions = compositions;
-    }
+    //
+//    public List<Composition> getCompositions() {
+//        return compositions;
+//    }
+//
+//    public void setCompositions(List<Composition> compositions) {
+//        this.compositions = compositions;
+//    }
+//
+//    public void addComposition(Composition composition) {
+//        this.compositions.add(composition);
+//
+//    }
 }

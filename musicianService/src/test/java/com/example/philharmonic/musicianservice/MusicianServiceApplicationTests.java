@@ -1,14 +1,20 @@
 package com.example.philharmonic.musicianservice;
 
 import com.example.philharmonic.musicianservice.models.Composition;
+import com.example.philharmonic.musicianservice.models.Concert;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
 import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
+import com.example.philharmonic.musicianservice.repositories.ConcertRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 
 //@RunWith(SpringRunner.class)
@@ -23,8 +29,17 @@ public class MusicianServiceApplicationTests {
     @Autowired
     CompositionRepository compositionRepository;
 
+    @Autowired
+    ConcertRepository concertRepository;
+
     @Test
     public void contextLoads(){}
+
+    @Test
+    public void createConcert(){
+        Concert marini = new Concert("Marini", "GRCH", OffsetDateTime.of(2020, 06,19, 19,45,0,0, ZoneOffset.ofHours(+1)));
+        concertRepository.save(marini);
+    }
 
     @Test
     public void createMusicianAndTutti(){
