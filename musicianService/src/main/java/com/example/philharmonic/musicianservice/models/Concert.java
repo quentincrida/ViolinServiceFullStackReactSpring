@@ -1,10 +1,12 @@
 package com.example.philharmonic.musicianservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,32 +24,31 @@ public class Concert {
 
     @Column(name = "details")
     private OffsetDateTime details;
-//
-//    @Column(name = "time")
-//    private String time;
 
-//    @JsonIgnoreProperties(value = "concert")
-//    @ManyToMany(mappedBy = "concert", fetch = FetchType.LAZY)
-//    @JoinTable(
-//            name = "concerts_compositions",
-//            joinColumns = {@JoinColumn(
-//                    name = "concert_id",
-//                    nullable = false,
-//                    updatable = false)
-//            },
-//            inverseJoinColumns = {@JoinColumn(
-//                    name = "composition_id",
-//                    nullable = false,
-//                    updatable = false)
-//            }
-//    )
-//    private List<Composition> compositions;
+
+    @JsonIgnoreProperties(value = "concert")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "concerts_compositions",
+            joinColumns = {@JoinColumn(
+                    name = "concert_id",
+                    nullable = false,
+                    updatable = false)
+            },
+            inverseJoinColumns = {@JoinColumn(
+                    name = "composition_id",
+                    nullable = false,
+                    updatable = false)
+            }
+    )
+    private List<Composition> compositions;
 
     public Concert(String title, String venue, OffsetDateTime details) {
         this.title = title;
         this.venue = venue;
         this.details = details;
-//        this.time = time;
+        this.compositions = new ArrayList<>();
     }
 
     public Concert() {
@@ -88,17 +89,17 @@ public class Concert {
     }
 
 
-    //
-//    public List<Composition> getCompositions() {
-//        return compositions;
-//    }
-//
-//    public void setCompositions(List<Composition> compositions) {
-//        this.compositions = compositions;
-//    }
-//
-//    public void addComposition(Composition composition) {
-//        this.compositions.add(composition);
-//
-//    }
+
+    public List<Composition> getCompositions() {
+        return compositions;
+    }
+
+    public void setCompositions(List<Composition> compositions) {
+        this.compositions = compositions;
+    }
+
+    public void addComposition(Composition composition) {
+        this.compositions.add(composition);
+
+    }
 }

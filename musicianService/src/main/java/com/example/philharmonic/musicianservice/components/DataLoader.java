@@ -102,11 +102,13 @@ public class DataLoader implements ApplicationRunner {
         Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456");
         compositionRepository.save(vivaldi);
 
-        Concert tchaikovsky = new Concert("Ballet Music", "Usher Hall", OffsetDateTime.of(2020,6,26,19,45,0,0, ZoneOffset.ofHours(+1)));
-        concertRepository.save(tchaikovsky);
+        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
 
-        Concert ravel = new Concert("La Valse", "City Halls, Glasgow", OffsetDateTime.of(2020,8,27,19,45,0,0, ZoneOffset.ofHours(+1)));
-        concertRepository.save(ravel);
+        Concert favouriteTunes = new Concert("Ballet Music", "Usher Hall", OffsetDateTime.of(2020,6,26,19,45,0,0, ZoneOffset.ofHours(+1)));
+        concertRepository.save(favouriteTunes);
+
+        Concert impressionists = new Concert("La Valse", "City Halls, Glasgow", OffsetDateTime.of(2020,8,27,19,45,0,0, ZoneOffset.ofHours(+1)));
+        concertRepository.save(impressionists);
 
         quentin.addComposition(beethoven);
         quentin.addComposition(mozart);
@@ -126,6 +128,14 @@ public class DataLoader implements ApplicationRunner {
         este.addComposition(shostakovich);
         este.addComposition(beethoven);
         musicianRepository.save(este);
+
+        favouriteTunes.addComposition(shostakovich);
+        concertRepository.save(favouriteTunes);
+
+        debussy.addConcert(impressionists);
+        compositionRepository.save(debussy);
+
+
 
     }
 }

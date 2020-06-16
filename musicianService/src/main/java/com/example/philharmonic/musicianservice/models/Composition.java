@@ -27,22 +27,22 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
-//    @JsonIgnoreProperties(value="compositions")
-//    @ManyToMany
-//    @JoinTable(
-//            name= "compositions_concerts",
-//            joinColumns =  {@JoinColumn(
-//                    name = "concert_id",
-//                    nullable = false,
-//                    updatable= false)
-//            },
-//            inverseJoinColumns = {@JoinColumn(
-//                    name = "composition_id",
-//                    nullable = false,
-//                    updatable = false
-//            )}
-//    )
-//    private List<Concert> concerts;
+    @JsonIgnoreProperties(value="compositions")
+    @ManyToMany
+    @JoinTable(
+            name= "compositions_concerts",
+            joinColumns =  {@JoinColumn(
+                    name = "concert_id",
+                    nullable = false,
+                    updatable= false)
+            },
+            inverseJoinColumns = {@JoinColumn(
+                    name = "composition_id",
+                    nullable = false,
+                    updatable = false
+            )}
+    )
+    private List<Concert> concerts;
 
 
     @JsonIgnoreProperties(value="compositions")
@@ -60,20 +60,14 @@ public class Composition {
 
 
 
-
-
-    public void setMusicians(List<Musician> musician) {
-        this.musicians = musicians;
-    }
-
     public Composition(String composer, String title, String key, String opus) {
         this.composer = composer;
         this.title = title;
         this.key = key;
         this.opus = opus;
         this.musicians  = new ArrayList<Musician>();
-    }
-
+        this.concerts = new ArrayList<>();
+}
     public Composition(){}
 
     public String getComposer() {
@@ -96,6 +90,10 @@ public class Composition {
         return musicians;
     }
 
+    public void setMusicians(List<Musician> musician) {
+        this.musicians = musicians;
+    }
+
     public Long getId() {
         return id;
     }
@@ -112,6 +110,8 @@ public class Composition {
         this.title = title;
     }
 
+
+
     public String getKey() {
         return key;
     }
@@ -123,7 +123,16 @@ public class Composition {
     public void addMusician(Musician musician){
         this.musicians.add(musician);
     }
-//    public void addConcert(Concert concert){
-//        this.concerts.add(concert);
-//    }
+
+    public List<Concert> getConcerts() {
+        return concerts;
+    }
+
+    public void setConcerts(List<Concert> concerts) {
+        this.concerts = concerts;
+    }
+
+    public void addConcert(Concert concert){
+        this.concerts.add(concert);
+    }
 }
