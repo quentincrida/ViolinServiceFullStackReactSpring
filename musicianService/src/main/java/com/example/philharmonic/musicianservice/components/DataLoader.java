@@ -2,10 +2,11 @@ package com.example.philharmonic.musicianservice.components;
 
 import com.example.philharmonic.musicianservice.models.Composition;
 //import com.example.philharmonic.musicianservice.models.Concert;
+import com.example.philharmonic.musicianservice.models.Concert;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
 import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
-//import com.example.philharmonic.musicianservice.repositories.ConcertRepository;
+import com.example.philharmonic.musicianservice.repositories.ConcertRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -27,7 +30,7 @@ public class DataLoader implements ApplicationRunner {
     CompositionRepository compositionRepository;
 
     @Autowired
-//    ConcertRepository concertRepository;
+    ConcertRepository concertRepository;
 
     public DataLoader() {
 
@@ -99,6 +102,12 @@ public class DataLoader implements ApplicationRunner {
         Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456");
         compositionRepository.save(vivaldi);
 
+        Concert tchaikovsky = new Concert("Ballet Music", "Usher Hall", OffsetDateTime.of(2020,6,26,19,45,0,0, ZoneOffset.ofHours(+1)));
+        concertRepository.save(tchaikovsky);
+
+        Concert ravel = new Concert("La Valse", "City Halls, Glasgow", OffsetDateTime.of(2020,8,27,19,45,0,0, ZoneOffset.ofHours(+1)));
+        concertRepository.save(ravel);
+
         quentin.addComposition(beethoven);
         quentin.addComposition(mozart);
         musicianRepository.save(quentin);
@@ -117,7 +126,6 @@ public class DataLoader implements ApplicationRunner {
         este.addComposition(shostakovich);
         este.addComposition(beethoven);
         musicianRepository.save(este);
-
 
     }
 }
