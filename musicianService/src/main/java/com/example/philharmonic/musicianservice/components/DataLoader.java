@@ -103,6 +103,7 @@ public class DataLoader implements ApplicationRunner {
         compositionRepository.save(vivaldi);
 
         Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
+        compositionRepository.save(debussy);
 
         Concert favouriteTunes = new Concert("Ballet Music", "Usher Hall", OffsetDateTime.of(2020,6,26,19,45,0,0, ZoneOffset.ofHours(+1)));
         concertRepository.save(favouriteTunes);
@@ -132,14 +133,16 @@ public class DataLoader implements ApplicationRunner {
         favouriteTunes.addComposition(shostakovich);
         concertRepository.save(favouriteTunes);
 
-        shostakovich.addConcert(impressionists);
-        compositionRepository.save(shostakovich);
-
-        debussy.addConcert(impressionists);
-        compositionRepository.save(debussy);
-
-        impressionists.addComposition(haydn);
+        impressionists.addComposition(debussy);
         concertRepository.save(impressionists);
+
+//        shostakovich.addConcert(impressionists);
+//        compositionRepository.save(shostakovich);
+//
+//        debussy.addConcert(impressionists);
+//        compositionRepository.save(debussy);
+
+
 
     }
 }

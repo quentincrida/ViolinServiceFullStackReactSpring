@@ -23,10 +23,18 @@ class ConcertContainer extends Component {
   findConcertById(id){
     return this.state.concerts.find((concert) => {
       return concert.id === parseInt(id);
-
     });
   }
+
+  handleDelete(id){
+    const request = new Request();
+    const url = '/api/concerts/' + id;
+    request.delete(url).then(() => {
+    window.location = '/concerts';
+    })
+  }
   render(){
+
     return (
       <Router>
         <Fragment>
@@ -34,7 +42,7 @@ class ConcertContainer extends Component {
           <Route exact path="/concerts/:id" render={(props) => {
             const id = props.match.params.id;
             const concert = this.findConcertById(id);
-            return <ConcertDetail concert={concert}/>
+            return <ConcertDetail concert={concert} onDelete={this.handleDelete}/>
           }}/>
           <Route render={(props) => {
             return <ConcertList concerts={this.state.concerts}/>

@@ -2,6 +2,14 @@ import React, {Component} from 'react';
 import Concert from "./Concert";
 
 class ConcertDetail extends Component {
+  constructor(props){
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete(){
+    this.props.onDelete(this.props.concert.id);
+  }
+
   render(){
     if(!this.props.concert){
       return "Searching..."
@@ -16,7 +24,9 @@ class ConcertDetail extends Component {
       <ul>
       {compositions}
       </ul>
+      <button onClick={this.handleDelete} className="delete">Delete {this.props.concert.title}</button>
       </div>
+
     )
   }
 }
