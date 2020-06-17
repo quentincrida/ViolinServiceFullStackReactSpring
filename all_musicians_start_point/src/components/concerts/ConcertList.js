@@ -4,7 +4,7 @@ import Concert from './Concert.js';
 const ConcertList = (props) => {
   if(props.concerts.length === 0){
     return (
-      <p>Finding concerts...</p>
+      <p>NO LISTED EVENTS</p>
     )
   }
   const concerts = props.concerts.map((concert, index) => {

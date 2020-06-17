@@ -27,7 +27,9 @@ const NavBar = (props) => {
         <li className="navLink">
           <a href="/concerts">Concerts</a>
         </li>
-
+        <li className="navLink">
+        <a href="/concerts/new">Add a Concert</a>
+        </li>
       </ul>
     </header>
   )

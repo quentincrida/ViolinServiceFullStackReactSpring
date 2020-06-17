@@ -3,21 +3,28 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ConcertList from '../components/concerts/ConcertList';
 import Request from '../helpers/request';
 import ConcertDetail from '../components/concerts/ConcertDetail';
+import ConcertForm from '../components/concerts/ConcertForm';
 
 class ConcertContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      concerts: []
+      concerts: [],
+      compositions: []
     }
     this.findConcertById = this.findConcertById.bind(this);
   }
   componentDidMount(){
     const request = new Request();
-    request.get('/api/concerts')
-    .then((data) => {
-      this.setState({concerts: data});
 
+    const concertPromise = request.get('/api/concerts');
+    const compositionPromise = request.get('/api/compositions');
+    Promise.all([concertPromise, compositionPromise])
+    .then((data) => {
+      this.setState(
+        {concerts: data[0],
+          compositions: data[1]}
+      )
     })
   }
   findConcertById(id){
@@ -33,12 +40,22 @@ class ConcertContainer extends Component {
     window.location = '/concerts';
     })
   }
+
+  handlePost(concert){
+    const request = new Request();
+    request.post('api/concerts', concert).then(() => {
+      window.location = '/concerts';
+    })
+  }
   render(){
 
     return (
       <Router>
         <Fragment>
           <Switch>
+          <Route exact path="/concerts/new" render={(props) => {
+            return <ConcertForm compositions = {this.state.compositions} onCreate={this.handlePost}/>
+          }}/>
           <Route exact path="/concerts/:id" render={(props) => {
             const id = props.match.params.id;
             const concert = this.findConcertById(id);
