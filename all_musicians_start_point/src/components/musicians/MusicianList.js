@@ -6,7 +6,7 @@ const MusicianList = (props) => {
 	if(props.musicians.length === 0){
 		return (<p>Tuning musicians...</p>)
 	}
-	
+
 	const sortedMusicians = props.musicians.sort(function(a, b){
 	 var lastNameA=a.lastName.toLowerCase(), lastNameB=b.lastName.toLowerCase();
 	 if (lastNameA < lastNameB) //sort string ascending

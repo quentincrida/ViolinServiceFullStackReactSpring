@@ -18,7 +18,7 @@ const MainContainer = () => {
         <Route path="/musicians" component={MusicianContainer}/>
         <Route path="/tuttis" component={TuttiContainer}/>
         <Route path="/compositions" component={CompositionContainer}/>
-        <Route path="/concerts" component={ConcertContainer}></Route>
+        <Route path="/concerts" component={ConcertContainer}/>
       </Switch>
       <footer>&copy; Quentin Crida 2020</footer>
       </Fragment>
