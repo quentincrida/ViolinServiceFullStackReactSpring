@@ -12,6 +12,7 @@ class MusicianContainer extends Component {
       musicians: [],
       tuttis: [],
       compositions: []
+
     }
     this.findMusicianById = this.findMusicianById.bind(this);
   }
@@ -22,6 +23,7 @@ class MusicianContainer extends Component {
     const musicianPromise = request.get('/api/musicians');
     const tuttiPromise = request.get('/api/tuttis');
     const compositionPromise = request.get('/api/compositions');
+
 
     Promise.all([musicianPromise, tuttiPromise, compositionPromise]).then((data) => {
       this.setState({

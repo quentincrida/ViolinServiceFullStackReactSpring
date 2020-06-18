@@ -10,7 +10,8 @@ class ConcertContainer extends Component {
     super(props);
     this.state = {
       concerts: [],
-      compositions: []
+      compositions: [],
+
     }
     this.findConcertById = this.findConcertById.bind(this);
   }
@@ -19,11 +20,13 @@ class ConcertContainer extends Component {
 
     const concertPromise = request.get('/api/concerts');
     const compositionPromise = request.get('/api/compositions');
+
     Promise.all([concertPromise, compositionPromise])
     .then((data) => {
       this.setState(
         {concerts: data[0],
-          compositions: data[1]}
+          compositions: data[1]
+        }
       )
     })
   }
@@ -43,6 +46,7 @@ class ConcertContainer extends Component {
 
   handlePost(concert){
     const request = new Request();
+    console.log(request);
     request.post('api/concerts', concert).then(() => {
       window.location = '/concerts';
     })

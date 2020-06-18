@@ -11,6 +11,7 @@ class CompositionContainer extends Component {
     this.state = {
       compositions: [],
       musicians: []
+
     }
     this.findCompositionById = this.findCompositionById.bind(this);
   }
@@ -21,11 +22,13 @@ class CompositionContainer extends Component {
     const compositionPromise = request.get('/api/compositions');
     const musicianPromise = request.get('/api/musicians');
 
+
     Promise.all([compositionPromise, musicianPromise])
     .then((data) => {
       this.setState({
         compositions: data[0],
         musicians: data[1]
+
       })
     })
   }

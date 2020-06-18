@@ -7,7 +7,7 @@ class ConcertForm extends Component {
       concert: {
         title: "",
         venue: "",
-        // details: OffsetDateTime(),
+        details: null,
         composition: null
       }
     }
@@ -32,6 +32,7 @@ class ConcertForm extends Component {
   handleSubmit(event){
     event.preventDefault();
     this.props.onCreate(this.state.concert);
+    console.log(this.state.concert);
   }
 render (){
   if(!this.props.compositions.length === 0){
@@ -46,13 +47,14 @@ render (){
     <form onSubmit={this.handleSubmit}>
     <input type="text" placeholder="Title" name="title" onChange={this.handleChange} value={this.state.title}/>
     <input type="text" placeholder="Venue" name="venue" onChange={this.handleChange} value={this.state.venue}/>
-    <input type="datetime" placeholder="Details" name="details" onChange={this.handleChange} value={this.state.details}/>
+    <input type="datetime-local" placeholder="Details" name="details" value="2020-06-20T19:30" min="2015-01-01T00:00" max="2030-12-31T00:00" onChange={this.handleChange} value={this.state.details}/>
 
     <select name="composition" onChange={this.handleComposition} defaultValue="select-composition">
     <option disabled value="select-composition">Select a Composition</option>
       {compositionOptions}
     </select>
     <button type="submit">Save</button>
+
     </form>
     </div>
   )
