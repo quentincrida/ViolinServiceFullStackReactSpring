@@ -41,7 +41,7 @@ class ConcertForm extends Component {
     this.props.onCreate(this.state.concert);
   }
 render (){
-  console.log(this.state);
+  console.log(this.state.programme);
   if(!this.props.compositions.length === 0){
     return <p>No Concerts to Declare!</p>
   }
