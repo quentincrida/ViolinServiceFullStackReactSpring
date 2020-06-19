@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
@@ -37,7 +38,7 @@ public class MusicianServiceApplicationTests {
 
     @Test
     public void createConcert(){
-        Concert marini = new Concert("Marini", "GRCH", OffsetDateTime.of(2020, 06,19, 19,45,0,0, ZoneOffset.ofHours(+1)));
+        Concert marini = new Concert("Marini", "GRCH", LocalDateTime.of(2020,05,10,19,45,00));
         concertRepository.save(marini);
     }
 

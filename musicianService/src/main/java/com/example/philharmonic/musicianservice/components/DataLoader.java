@@ -14,9 +14,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 
 @Component
@@ -106,10 +105,10 @@ public class DataLoader implements ApplicationRunner {
         Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
         compositionRepository.save(debussy);
 
-        Concert favouriteTunes = new Concert("Ballet Music", "Usher Hall", OffsetDateTime.of(LocalDateTime.of(2020,07,16,19,45),ZoneOffset.ofHours(+1)));
+        Concert favouriteTunes = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
         concertRepository.save(favouriteTunes);
 
-        Concert impressionists = new Concert("La Valse", "City Halls, Glasgow", OffsetDateTime.of(2020,8,27,19,45,0,0, ZoneOffset.ofHours(+1)));
+        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
         concertRepository.save(impressionists);
 
         seb.addComposition(beethoven);

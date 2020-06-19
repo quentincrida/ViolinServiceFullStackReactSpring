@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class Concert {
     private String venue;
 
     @Column(name = "details")
-    private OffsetDateTime details;
+    private LocalDateTime details;
 
 
     @JsonIgnoreProperties(value = "concert")
@@ -44,7 +44,7 @@ public class Concert {
     )
     private List<Composition> compositions;
 
-    public Concert(String title, String venue, OffsetDateTime details) {
+    public Concert(String title, String venue, LocalDateTime details) {
         this.title = title;
         this.venue = venue;
         this.details = details;
@@ -80,11 +80,11 @@ public class Concert {
         this.venue = venue;
     }
 
-    public OffsetDateTime getDetails() {
+    public LocalDateTime getDetails() {
         return details;
     }
 
-    public void setDetails(OffsetDateTime details) {
+    public void setDetails(LocalDateTime details) {
         this.details = details;
     }
 
