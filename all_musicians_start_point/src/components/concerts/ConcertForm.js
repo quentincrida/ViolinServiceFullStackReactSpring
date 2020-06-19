@@ -7,7 +7,7 @@ class ConcertForm extends Component {
       concert: {
         title: "",
         venue: "",
-        details: "",
+        details: new Date().toLocaleString(),
         composition: null
       }
     }
