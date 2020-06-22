@@ -16,12 +16,6 @@ class ConcertForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // getDate(){
-  //   var details = new Date().toLocaleString();
-  //   this.setState({ details });
-  // }
-
-
   handleChange(event){
     let propertyName = event.target.name;
     let concert = this.state.concert
@@ -41,12 +35,11 @@ class ConcertForm extends Component {
     this.props.onCreate(this.state.concert);
   }
 render (){
-  console.log(this.state.programme);
   if(!this.props.compositions.length === 0){
     return <p>No Concerts to Declare!</p>
   }
   const compositionOptions = this.props.compositions.map((composition, index) => {
-    return <option key={index} value={index}>{composition.title}, {composition.composer}</option>
+    return <option key={index} value={index}>{composition.title}</option>
 
   })
   return (

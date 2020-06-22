@@ -8,10 +8,10 @@ const CompositionList = (props) => {
 	}
 
 	const sortedCompositions = props.compositions.sort(function(a, b){
-		var composerA=a.composer.toLowerCase(), composerB=b.composer.toLowerCase();
-		if (composerA < composerB) //sort string ascending
+		var titleA=a.title.toLowerCase(), titleB=b.title.toLowerCase();
+		if (titleA < titleB) //sort string ascending
 		 return -1;
-		if (composerA > composerB)
+		if (titleA > titleB)
 		 return 1;
 		return 0; //default return value (no sorting)
 	 });

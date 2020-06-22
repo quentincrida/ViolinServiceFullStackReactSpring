@@ -10,7 +10,8 @@ class CompositionContainer extends Component {
     super(props);
     this.state = {
       compositions: [],
-      musicians: []
+      musicians: [],
+      concerts:[]
 
     }
     this.findCompositionById = this.findCompositionById.bind(this);
@@ -21,14 +22,15 @@ class CompositionContainer extends Component {
 
     const compositionPromise = request.get('/api/compositions');
     const musicianPromise = request.get('/api/musicians');
+    const concertPromise = request.get('/api/concerts');
 
 
-    Promise.all([compositionPromise, musicianPromise])
+    Promise.all([compositionPromise, musicianPromise, concertPromise])
     .then((data) => {
       this.setState({
         compositions: data[0],
-        musicians: data[1]
-
+        musicians: data[1],
+        concerts: data[2]
       })
     })
   }
@@ -64,6 +66,7 @@ class CompositionContainer extends Component {
         <Switch>
         <Route exact path='/compositions/new' render={() =>{
           return <CompositionForm musicians = {this.state.musicians} onCreate={this.handlePost}/>
+          // return <CompositionForm concerts = {this.state.concerts} onCreate={this.handlePost} />
         }} />
         <Route exact path='/compositions/:id/edit' render={(props) => {
           const id = props.match.params.id;

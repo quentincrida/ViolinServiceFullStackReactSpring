@@ -41,6 +41,7 @@ public class Musician implements Serializable {
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "musicians_compositions",
             joinColumns = {@JoinColumn(
                     name = "musician_id",
                     nullable = false, updatable = false)

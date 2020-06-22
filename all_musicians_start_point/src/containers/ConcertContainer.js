@@ -48,8 +48,8 @@ class ConcertContainer extends Component {
 
     const request = new Request();
     request.post('/api/concerts', concert).then(() => {
-        console.log("Is THIS working?");
       window.location = '/concerts';
+
     })
   }
   render(){
