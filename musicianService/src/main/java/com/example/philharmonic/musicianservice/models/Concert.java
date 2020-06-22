@@ -88,8 +88,6 @@ public class Concert {
         this.details = details;
     }
 
-
-
     public List<Composition> getCompositions() {
         return compositions;
     }

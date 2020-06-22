@@ -16,6 +16,7 @@ class ConcertForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleChange(event){
     let propertyName = event.target.name;
     let concert = this.state.concert
@@ -38,7 +39,7 @@ render (){
   if(!this.props.compositions.length === 0){
     return <p>No Concerts to Declare!</p>
   }
-  const compositionOptions = this.props.compositions.map((composition, index) => {
+  const programmeOptions = this.props.compositions.map((composition, index) => {
     return <option key={index} value={index}>{composition.title}</option>
 
   })
@@ -49,9 +50,9 @@ render (){
     <input type="text" placeholder="Venue" name="venue" onChange={this.handleChange} value={this.state.venue}/>
     <input type="datetime-local" placeholder="Details" name="details"   min="2000-06-07T00:00" max="2050-06-14T00:00" onChange={this.handleChange} value={this.state.details}/>
 
-    <select name="composition" onChange={this.handleComposition} defaultValue="select-composition">
+    <select name="composition"  defaultValue="select-composition" onChange={this.handleComposition}>
     <option disabled value="select-composition">Select a Composition</option>
-      {compositionOptions}
+      {programmeOptions}
     </select>
     <button type="submit">Save</button>
 

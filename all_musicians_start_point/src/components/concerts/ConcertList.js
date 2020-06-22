@@ -8,6 +8,7 @@ const ConcertList = (props) => {
     )
   }
   const concerts = props.concerts.map((concert, index) => {
+    
     return (
       <li key={index} className="component-item">
       <div className="component">

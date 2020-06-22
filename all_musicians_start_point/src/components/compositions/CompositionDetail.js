@@ -18,10 +18,13 @@ class CompositionDetail extends Component {
     const musicians = this.props.composition.musicians.map((musician, index) => {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
+
     const concerts = this.props.composition.concerts.map((concert, index) => {
         return <li key={index}>{concert.title}</li>
     })
+
     const editUrl = "/compositions/" + this.props.composition.id + "/edit"
+
 
     return (
       <div className="component">

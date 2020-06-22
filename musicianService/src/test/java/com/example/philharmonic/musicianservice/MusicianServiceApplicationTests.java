@@ -83,4 +83,35 @@ public class MusicianServiceApplicationTests {
         composition.addMusician(violin2);
         composition.addMusician(violin3);
     }
+
+    @Test
+    public void addCompositionToConcert(){
+
+        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
+        compositionRepository.save(uccellini);
+
+        Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
+        concertRepository.save(baroque);
+
+        baroque.addComposition(uccellini);
+    }
+    @Test
+    public void addOneCompositionToManyConcerts(){
+
+        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
+        compositionRepository.save(uccellini);
+
+        Concert earlyBaroque = new Concert("Early Baroque", "FHCC", LocalDateTime.of(2021,6,22,19,45,00));
+        concertRepository.save(earlyBaroque);
+
+        Concert midBaroque = new Concert("Mid Baroque", "Arena", LocalDateTime.of(2022,7,22,19,45,00));
+        concertRepository.save(midBaroque);
+
+        Concert lateBaroque = new Concert("Late Baroque", "FHCC", LocalDateTime.of(2023,8,22,19,45,00));
+        concertRepository.save(lateBaroque);
+
+        earlyBaroque.addComposition(uccellini);
+        midBaroque.addComposition(uccellini);
+        lateBaroque.addComposition(uccellini);
+    }
 }

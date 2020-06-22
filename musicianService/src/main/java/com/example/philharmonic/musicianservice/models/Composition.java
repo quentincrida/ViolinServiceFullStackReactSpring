@@ -110,8 +110,6 @@ public class Composition {
         this.title = title;
     }
 
-
-
     public String getKey() {
         return key;
     }
