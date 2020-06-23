@@ -1,6 +1,7 @@
 package com.example.philharmonic.musicianservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.swing.*;
@@ -29,6 +30,7 @@ public class Composition {
 
     @JsonIgnoreProperties(value="compositions")
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name= "compositions_concerts",
             joinColumns =  {@JoinColumn(

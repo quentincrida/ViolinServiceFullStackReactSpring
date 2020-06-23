@@ -78,7 +78,6 @@ public class MusicianServiceApplicationTests {
         compositionRepository.save(composition3);
 
 
-
         composition.addMusician(leader);
         composition.addMusician(violin2);
         composition.addMusician(violin3);

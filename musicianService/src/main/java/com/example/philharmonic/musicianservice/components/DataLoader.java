@@ -105,8 +105,11 @@ public class DataLoader implements ApplicationRunner {
         Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
         compositionRepository.save(debussy);
 
-        Concert favouriteTunes = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
-        concertRepository.save(favouriteTunes);
+        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
+        compositionRepository.save(uccellini);
+
+        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
+        concertRepository.save(balletMusic);
 
         Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
         concertRepository.save(impressionists);
@@ -130,17 +133,21 @@ public class DataLoader implements ApplicationRunner {
         este.addComposition(beethoven);
         musicianRepository.save(este);
 
-        favouriteTunes.addComposition(shostakovich);
-        concertRepository.save(favouriteTunes);
-
-        impressionists.addComposition(debussy);
-        concertRepository.save(impressionists);
-
-//        shostakovich.addConcert(impressionists);
-//        compositionRepository.save(shostakovich);
+//        balletMusic.addComposition(shostakovich);
+//        balletMusic.addComposition(debussy);
+//        concertRepository.save(balletMusic);
 //
-//        debussy.addConcert(impressionists);
-//        compositionRepository.save(debussy);
+//
+//
+//        impressionists.addComposition(debussy);
+//        impressionists.addComposition(shostakovich);
+//        concertRepository.save(impressionists);
+
+        uccellini.addConcert(impressionists);
+        compositionRepository.save(uccellini);
+
+        debussy.addConcert(impressionists);
+        compositionRepository.save(debussy);
 
 
 
