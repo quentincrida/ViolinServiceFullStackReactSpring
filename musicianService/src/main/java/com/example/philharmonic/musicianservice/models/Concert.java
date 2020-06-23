@@ -28,7 +28,7 @@ public class Concert {
 
     @JsonIgnoreProperties(value = "concert")
     @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name = "concerts_compositions",
             joinColumns = {@JoinColumn(

@@ -32,14 +32,14 @@ public class Composition {
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
-            name= "compositions_concerts",
+            name= "concerts_compositions",
             joinColumns =  {@JoinColumn(
-                    name = "concert_id",
+                    name = "composition_id",
                     nullable = false,
                     updatable= false)
             },
             inverseJoinColumns = {@JoinColumn(
-                    name = "composition_id",
+                    name = "concert_id",
                     nullable = false,
                     updatable = false
             )}
