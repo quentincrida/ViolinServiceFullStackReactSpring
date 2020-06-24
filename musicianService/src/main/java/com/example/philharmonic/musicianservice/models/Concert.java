@@ -26,9 +26,10 @@ public class Concert {
     private LocalDateTime details;
 
 
+
     @JsonIgnoreProperties(value = "concert")
     @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name = "concerts_compositions",
             joinColumns = {@JoinColumn(
@@ -54,7 +55,6 @@ public class Concert {
     public Concert() {
     }
 
-    ;
 
     public Long getId() {
         return id;
@@ -98,6 +98,6 @@ public class Concert {
 
     public void addComposition(Composition composition) {
         this.compositions.add(composition);
-
     }
+
 }

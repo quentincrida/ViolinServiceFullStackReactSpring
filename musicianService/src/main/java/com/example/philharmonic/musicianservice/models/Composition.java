@@ -28,7 +28,11 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
-    @JsonIgnoreProperties(value="compositions")
+
+
+
+
+    @JsonIgnoreProperties(value="composition")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -122,14 +126,6 @@ public class Composition {
 
     public void addMusician(Musician musician){
         this.musicians.add(musician);
-    }
-
-    public List<Concert> getConcerts() {
-        return concerts;
-    }
-
-    public void setConcerts(List<Concert> concerts) {
-        this.concerts = concerts;
     }
 
     public void addConcert(Concert concert){

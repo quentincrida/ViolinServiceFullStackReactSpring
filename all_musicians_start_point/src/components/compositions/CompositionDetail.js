@@ -19,9 +19,9 @@ class CompositionDetail extends Component {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
 
-    const concerts = this.props.composition.concerts.map((concert, index) => {
-        return <li key={index}>{concert.title}</li>
-    })
+    // const concerts = this.props.composition.concerts.map((concert, index) => {
+    //     return <li key={index}>{concert.title}</li>
+    // })
 
     const editUrl = "/compositions/" + this.props.composition.id + "/edit"
 
@@ -33,10 +33,7 @@ class CompositionDetail extends Component {
       <ul>
       {musicians}
       </ul>
-      <p>Concerts:</p>
-      <ul>
-      {concerts}
-      </ul>
+    
 
       <button onClick={this.handleDelete} className="delete">Delete {this.props.composition.composer} {this.props.composition.title}</button>
       <Link to={editUrl}><button type="button" className="edit">Edit {this.props.composition.composer} {this.props.composition.title}</button></Link>

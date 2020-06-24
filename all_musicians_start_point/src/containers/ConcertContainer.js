@@ -32,7 +32,6 @@ class ConcertContainer extends Component {
           musicians: data[2]
         }
       )
-        console.log(data);
     })
   }
   findConcertById(id){
@@ -46,6 +45,12 @@ class ConcertContainer extends Component {
     const url = '/api/concerts/' + id;
     request.delete(url).then(() => {
     window.location = '/concerts';
+    })
+  }
+  handleUpdate(concert){
+    const request = new Request();
+    request.patch('/api/concerts/' + concert.id, concert).then(() => {
+      window.location = '/concerts/' + concert.id
     })
   }
 
@@ -64,6 +69,12 @@ class ConcertContainer extends Component {
           <Switch>
           <Route exact path="/concerts/new" render={(props) => {
             return <ConcertForm compositions = {this.state.compositions} onCreate={this.handlePost}/>
+          }}/>
+          <Route exact path="/concerts/:id/edit" render={(props) => {
+            const id = props.match.params.id;
+            const concert = this.findConcertById(id);
+            return  <ConcertForm concert={concert} compositions={this.state.compositions}
+            onUpdate={this.handleUpdate}/>
           }}/>
           <Route exact path="/concerts/:id" render={(props) => {
             const id = props.match.params.id;

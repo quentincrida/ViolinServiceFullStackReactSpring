@@ -87,6 +87,14 @@ public class DataLoader implements ApplicationRunner {
         Musician bill = new Musician("Bill", "Belgium", 55, "Timpani", "Principal", percussion);
         musicianRepository.save(bill);
 
+
+        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
+        concertRepository.save(balletMusic);
+
+        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
+        concertRepository.save(impressionists);
+
+
         Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67");
         compositionRepository.save(beethoven);
 
@@ -107,12 +115,6 @@ public class DataLoader implements ApplicationRunner {
 
         Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
         compositionRepository.save(uccellini);
-
-        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
-        concertRepository.save(balletMusic);
-
-        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
-        concertRepository.save(impressionists);
 
         seb.addComposition(beethoven);
         seb.addComposition(mozart);
@@ -142,7 +144,7 @@ public class DataLoader implements ApplicationRunner {
 //        impressionists.addComposition(debussy);
 //        impressionists.addComposition(shostakovich);
 //        concertRepository.save(impressionists);
-
+//***** UNNOTE FIRST****************
         uccellini.addConcert(impressionists);
         compositionRepository.save(uccellini);
 

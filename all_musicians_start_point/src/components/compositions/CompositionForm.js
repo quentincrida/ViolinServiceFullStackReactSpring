@@ -9,7 +9,7 @@ class CompositionForm extends Component {
         title: "",
         key: "",
         opus: "",
-        musician: null
+        // musician: null
       }
     }
     this.handleChange = this.handleChange.bind(this);
