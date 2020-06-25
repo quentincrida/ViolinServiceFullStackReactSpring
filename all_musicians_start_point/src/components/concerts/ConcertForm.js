@@ -45,7 +45,7 @@ class ConcertForm extends Component {
     }
     }
 
-  
+
 
 
 
@@ -53,12 +53,13 @@ render (){
   if(!this.props.compositions.length === 0){
     return <p>No Concerts to Declare!</p>
   }
+
   let heading = "";
 
   if(!this.props.concert){
     heading = "Create Concert"
   } else {
-    heading = "Edit" + " " + this.props.concert.title;
+    heading = "Edit " + this.props.concert.title;
   }
 
   // const programmeOptions = this.props.compositions.map((composition, index) => {

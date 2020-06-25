@@ -42,8 +42,8 @@ class CompositionContainer extends Component {
   }
   handlePost(composition){
     const request = new Request();
-    request.post('/api/compositions', composition).then(() => {
-      window.location = '/compositions'
+    request.post('/api/compositions/', composition).then(() => {
+      window.location = '/compositions';
     })
   }
 

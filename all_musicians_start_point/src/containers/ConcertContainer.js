@@ -73,7 +73,7 @@ class ConcertContainer extends Component {
           <Route exact path="/concerts/:id/edit" render={(props) => {
             const id = props.match.params.id;
             const concert = this.findConcertById(id);
-            return  <ConcertForm concert={concert} compositions={this.state.compositions}
+              return  <ConcertForm concert={concert} compositions={this.state.compositions}
             onUpdate={this.handleUpdate}/>
           }}/>
           <Route exact path="/concerts/:id" render={(props) => {
