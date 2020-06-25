@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Composition from './Composition';
+import Concert from '../concerts/Concert';
 import {Link} from 'react-router-dom';
 
 
@@ -19,7 +20,7 @@ class CompositionDetail extends Component {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
 
-    // const concerts = this.props.composition.concerts.map((concert, index) => {
+    // const concerts = this.props.musicians.concerts.map((concert, index) => {
     //     return <li key={index}>{concert.title}</li>
     // })
 
@@ -33,7 +34,7 @@ class CompositionDetail extends Component {
       <ul>
       {musicians}
       </ul>
-    
+
 
       <button onClick={this.handleDelete} className="delete">Delete {this.props.composition.composer} {this.props.composition.title}</button>
       <Link to={editUrl}><button type="button" className="edit">Edit {this.props.composition.composer} {this.props.composition.title}</button></Link>

@@ -65,8 +65,7 @@ class CompositionContainer extends Component {
       <Fragment>
         <Switch>
         <Route exact path='/compositions/new' render={() =>{
-          return <CompositionForm musicians = {this.state.musicians} onCreate={this.handlePost}/>
-          // return <CompositionForm concerts = {this.state.concerts} onCreate={this.handlePost} />
+          return <CompositionForm musicians = {this.state.musicians} concerts = {this.state.concerts} onCreate={this.handlePost} />
         }} />
         <Route exact path='/compositions/:id/edit' render={(props) => {
           const id = props.match.params.id;
