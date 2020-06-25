@@ -44,6 +44,14 @@ class CompositionForm extends Component {
     this.props.onCreate(this.state.composition);
   }
 }
+findConcertIndex(){
+  if(this.props.composition){
+    return this.props.concerts.findIndex(concert =>
+    this.props.composition.concert.id === concert.id)
+  } else {
+    return null;
+  }
+}
 
 render() {
   if(!this.props.concerts.length === 0){
@@ -68,8 +76,9 @@ render() {
     <input type="text" placeholder="Key" name="key" onChange={this.handleChange} value={this.state.composition.key}/>
     <input type="text" placeholder="Opus" name="opus" onChange={this.handleChange} value={this.state.composition.opus}/>
 
-    <select name="concert" onChange={this.handleConcert} defaultValue="select-concert">
-    <option disabled value="select-concert">Select a Concert</option>{concertOptions}
+    <select name="concert" defaultValue={this.findConcertIndex() || "select-concert"} onChange={this.handleConcert}>
+    <option disabled value="select-concert">Select a Concert</option>
+    {concertOptions}
     </select>
 
     <button type="submit">Save</button>

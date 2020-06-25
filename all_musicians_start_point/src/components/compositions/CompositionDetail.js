@@ -34,10 +34,6 @@ class CompositionDetail extends Component {
       <ul>
       {musicians}
       </ul>
-
-      
-
-
       <button onClick={this.handleDelete} className="delete">Delete {this.props.composition.composer} {this.props.composition.title}</button>
       <Link to={editUrl}><button type="button" className="edit">Edit {this.props.composition.composer} {this.props.composition.title}</button></Link>
       </div>

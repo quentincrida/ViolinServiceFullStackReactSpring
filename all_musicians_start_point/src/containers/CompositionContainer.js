@@ -70,7 +70,7 @@ class CompositionContainer extends Component {
         <Route exact path='/compositions/:id/edit' render={(props) => {
           const id = props.match.params.id;
           const composition = this.findCompositionById(id);
-          return <CompositionForm composition={composition}
+          return <CompositionForm composition={composition} concerts={this.state.concerts}
           onUpdate={this.handleUpdate}/>
         }}/>
         <Route exact path='/compositions/:id' render={(props) => {
