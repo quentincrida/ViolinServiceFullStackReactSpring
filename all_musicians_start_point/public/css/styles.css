@@ -109,10 +109,14 @@ header {
 }
 h1 {
   color: yellow;
+  text-align: center;
 }
 .subHeading {
   color: yellow;
 }
+#blurb {
+  color: yellow;
+  text-align: left;
 }
 header * {
     display: inline;
@@ -130,7 +134,7 @@ a {
     color: black;
 }
 footer {
-  color: white;
+  color: yellow;
   position: fixed;
   bottom: 0;
   margin-left: 10px ;

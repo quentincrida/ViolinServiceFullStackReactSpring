@@ -61,7 +61,7 @@ public class MusicianServiceApplicationTests {
         musicianRepository.save(leader);
         Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
         concertRepository.save(baroque);
-        Composition composition = new Composition("Beethoven", "Triple Concerto", "C Major", "10");
+        Composition composition = new Composition("Beethoven", "Triple Concerto", "C Major", "10", baroque);
         compositionRepository.save(composition);
 
 
@@ -70,7 +70,7 @@ public class MusicianServiceApplicationTests {
         Musician violin2 = new Musician("Wendy", "Schwietering", 6, "violin", "Sub Principal",tutti2);
         musicianRepository.save(violin2);
 
-        Composition composition2 = new Composition("Mozart", "Symphony Nr 1", "F minor", "K. 23");
+        Composition composition2 = new Composition("Mozart", "Symphony Nr 1", "F minor", "K. 23", baroque);
         compositionRepository.save(composition2);
 
 
@@ -78,7 +78,7 @@ public class MusicianServiceApplicationTests {
         tuttiRepository.save(tutti3);
         Musician violin3 = new Musician("Simos", "Aering", 30, "Violin", "Principal", tutti3);
         musicianRepository.save(violin3);
-        Composition composition3 = new Composition("Shostakovich", "The Nose", "D Major", "152");
+        Composition composition3 = new Composition("Shostakovich", "The Nose", "D Major", "152", baroque);
         compositionRepository.save(composition3);
 
 
@@ -87,18 +87,24 @@ public class MusicianServiceApplicationTests {
         composition.addMusician(violin3);
     }
 
+//*****NOTED OUT LAST
+//    @Test
+//////    public void addCompositionToConcert(){
+//////
+//////        Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
+//////        concertRepository.save(baroque);
+//////
+//////        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", baroque);
+//////        compositionRepository.save(uccellini);
+//////
+//////        baroque.addComposition(uccellini);
+//////    }
+//////
+//////  *******STOP HERE
 
-    @Test
-    public void addCompositionToConcert(){
 
-        Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
-        concertRepository.save(baroque);
 
-        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
-        compositionRepository.save(uccellini);
 
-        baroque.addComposition(uccellini);
-    }
 //    @Test
 //    public void addOneCompositionToManyConcerts(){
 //

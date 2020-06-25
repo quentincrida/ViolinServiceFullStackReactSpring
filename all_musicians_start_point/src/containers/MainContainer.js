@@ -13,6 +13,7 @@ const MainContainer = () => {
 
       <Fragment>
         <h1>The Musicians Booking App</h1>
+        <p id="blurb">An App for creating and editing musicians, compositions and events.</p>
       <NavBar/>
       <Switch>
         <Route path="/musicians" component={MusicianContainer}/>

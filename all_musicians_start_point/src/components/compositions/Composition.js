@@ -9,11 +9,12 @@ const url ="/compositions/" + props.composition.id;
   return (
     <Fragment>
         <Link to ={url} className="name">
-          {props.composition.composer} 
+          {props.composition.composer}
         </Link>
       <p>{props.composition.title}</p>
       <p>Key: {props.composition.key}</p>
       <p>Opus: {props.composition.opus}</p>
+      <p>Concerts: {props.composition.concert.title}</p>
     </Fragment>
   )
 }

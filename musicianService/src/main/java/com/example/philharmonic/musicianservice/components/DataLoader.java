@@ -95,25 +95,25 @@ public class DataLoader implements ApplicationRunner {
         concertRepository.save(impressionists);
 
 
-        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67");
+        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67", balletMusic);
         compositionRepository.save(beethoven);
 
-        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364");
+        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364", balletMusic);
         compositionRepository.save(mozart);
 
-        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?");
+        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?", balletMusic);
         compositionRepository.save(haydn);
 
-        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47");
+        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47", balletMusic);
         compositionRepository.save(shostakovich);
 
-        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456");
+        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456", impressionists);
         compositionRepository.save(vivaldi);
 
-        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
+        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109", impressionists);
         compositionRepository.save(debussy);
 
-        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
+        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", balletMusic);
         compositionRepository.save(uccellini);
 
         seb.addComposition(beethoven);
@@ -144,12 +144,14 @@ public class DataLoader implements ApplicationRunner {
 //        impressionists.addComposition(debussy);
 //        impressionists.addComposition(shostakovich);
 //        concertRepository.save(impressionists);
-//***** UNNOTE FIRST****************
-        uccellini.addConcert(impressionists);
-        compositionRepository.save(uccellini);
 
-        debussy.addConcert(impressionists);
-        compositionRepository.save(debussy);
+
+//***** UNNOTE FIRST****************
+//        uccellini.addConcert(impressionists);
+//        compositionRepository.save(uccellini);
+//
+//        debussy.addConcert(impressionists);
+//        compositionRepository.save(debussy);
 
 
 

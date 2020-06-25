@@ -20,7 +20,7 @@ class CompositionDetail extends Component {
       return <li key={index}>{musician.firstName} {musician.lastName}</li>
     })
 
-    // const concerts = this.props.musicians.concerts.map((concert, index) => {
+    // const concerts = this.props.compositions.concerts.map((concert, index) => {
     //     return <li key={index}>{concert.title}</li>
     // })
 
@@ -34,6 +34,8 @@ class CompositionDetail extends Component {
       <ul>
       {musicians}
       </ul>
+
+      
 
 
       <button onClick={this.handleDelete} className="delete">Delete {this.props.composition.composer} {this.props.composition.title}</button>

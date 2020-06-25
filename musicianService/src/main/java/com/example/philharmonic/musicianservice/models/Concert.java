@@ -25,31 +25,34 @@ public class Concert {
     @Column(name = "details")
     private LocalDateTime details;
 
+    @JsonIgnoreProperties(value="concert")
+//    @JsonBackReference
+    @OneToMany(mappedBy = "concert", fetch = FetchType.LAZY)
+    private List<Composition>  compositions;
 
-
-    @JsonIgnoreProperties(value = "concert")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "concerts_compositions",
-            joinColumns = {@JoinColumn(
-                    name = "concert_id",
-                    nullable = false,
-                    updatable = false)
-            },
-            inverseJoinColumns = {@JoinColumn(
-                    name = "composition_id",
-                    nullable = false,
-                    updatable = false)
-            }
-    )
-    private List<Composition> compositions;
+//    @JsonIgnoreProperties(value = "concert")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            name = "concerts_compositions",
+//            joinColumns = {@JoinColumn(
+//                    name = "concert_id",
+//                    nullable = false,
+//                    updatable = false)
+//            },
+//            inverseJoinColumns = {@JoinColumn(
+//                    name = "composition_id",
+//                    nullable = false,
+//                    updatable = false)
+//            }
+//    )
+//    private List<Composition> compositions;
 
     public Concert(String title, String venue, LocalDateTime details) {
         this.title = title;
         this.venue = venue;
         this.details = details;
-        this.compositions = new ArrayList<>();
+//        this.compositions = new ArrayList<>();
     }
 
     public Concert() {
@@ -88,16 +91,17 @@ public class Concert {
         this.details = details;
     }
 
-    public List<Composition> getCompositions() {
+
+        public List<Composition> getCompositions() {
         return compositions;
     }
 
     public void setCompositions(List<Composition> compositions) {
         this.compositions = compositions;
     }
-
-    public void addComposition(Composition composition) {
-        this.compositions.add(composition);
-    }
+//
+//    public void addComposition(Composition composition) {
+//        this.compositions.add(composition);
+//    }
 
 }

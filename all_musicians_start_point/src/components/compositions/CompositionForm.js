@@ -9,11 +9,11 @@ class CompositionForm extends Component {
         title: "",
         key: "",
         opus: "",
-        // musician: null
+        concert: null
       }
     }
     this.handleChange = this.handleChange.bind(this);
-    // this.handleMusician = this.handleMusician.bind(this);
+    this.handleConcert = this.handleConcert.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,7 +28,13 @@ class CompositionForm extends Component {
     let composition = this.state.composition
     composition[propertyName] = event.target.value;
     this.setState({composition: composition})
-
+  }
+  handleConcert(event){
+    const index = parseInt(event.target.value)
+    const selectedConcert = this.props.concerts[index]
+    let composition = this.state.composition;
+    composition['concert'] = selectedConcert
+    this.setState({composition: composition})
   }
   handleSubmit(event){
     event.preventDefault();
@@ -40,9 +46,13 @@ class CompositionForm extends Component {
 }
 
 render() {
-  // if(!this.props.musicians.length === 0){
-  //   return <p>Composing symphonies.....</p>
-  // }
+  if(!this.props.concerts.length === 0){
+    return <p>Composing symphonies.....</p>
+  }
+  const concertOptions = this.props.concerts.map((concert, index) => {
+    return <option key={index} value={index}>{concert.title}</option>
+
+  })
   let heading = "";
   if(!this.props.composition){
     heading = "Add a Composition"
@@ -57,6 +67,10 @@ render() {
     <input type="text" placeholder="Composition Title" name="title" onChange={this.handleChange} value={this.state.composition.title}/>
     <input type="text" placeholder="Key" name="key" onChange={this.handleChange} value={this.state.composition.key}/>
     <input type="text" placeholder="Opus" name="opus" onChange={this.handleChange} value={this.state.composition.opus}/>
+
+    <select name="concert" onChange={this.handleConcert} defaultValue="select-concert">
+    <option disabled value="select-concert">Select a Concert</option>{concertOptions}
+    </select>
 
     <button type="submit">Save</button>
     </form>

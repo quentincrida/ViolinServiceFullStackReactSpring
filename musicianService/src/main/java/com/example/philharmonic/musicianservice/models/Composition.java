@@ -28,27 +28,30 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
+    @JsonIgnoreProperties(value="compositions")
+    @ManyToOne
+    @JoinColumn(name="concert_id", nullable = false)
+    private Concert concert;
 
 
-
-
-    @JsonIgnoreProperties(value="composition")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name= "concerts_compositions",
-            joinColumns =  {@JoinColumn(
-                    name = "composition_id",
-                    nullable = false,
-                    updatable= false)
-            },
-            inverseJoinColumns = {@JoinColumn(
-                    name = "concert_id",
-                    nullable = false,
-                    updatable = false
-            )}
-    )
-    private List<Concert> concerts;
+//
+//    @JsonIgnoreProperties(value="compositions")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            name= "concerts_compositions",
+//            joinColumns =  {@JoinColumn(
+//                    name = "composition_id",
+//                    nullable = false,
+//                    updatable= false)
+//            },
+//            inverseJoinColumns = {@JoinColumn(
+//                    name = "concert_id",
+//                    nullable = false,
+//                    updatable = false
+//            )}
+//    )
+//    private List<Concert> concerts;
 
 
     @JsonIgnoreProperties(value="compositions")
@@ -66,15 +69,23 @@ public class Composition {
 
 
 
-    public Composition(String composer, String title, String key, String opus) {
+    public Composition(String composer, String title, String key, String opus, Concert concert) {
         this.composer = composer;
         this.title = title;
         this.key = key;
         this.opus = opus;
+        this.concert = concert;
         this.musicians  = new ArrayList<Musician>();
-        this.concerts = new ArrayList<>();
 }
     public Composition(){}
+
+    public Concert getConcert() {
+        return concert;
+    }
+
+    public void setConcert(Concert concert) {
+        this.concert = concert;
+    }
 
     public String getComposer() {
         return composer;
@@ -128,7 +139,7 @@ public class Composition {
         this.musicians.add(musician);
     }
 
-    public void addConcert(Concert concert){
-        this.concerts.add(concert);
-    }
+//    public void addConcert(Concert concert){
+//        this.concerts.add(concert);
+//    }
 }
