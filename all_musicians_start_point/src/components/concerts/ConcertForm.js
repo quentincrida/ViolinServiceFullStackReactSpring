@@ -8,14 +8,14 @@ class ConcertForm extends Component {
         title: "",
         venue: "",
         details: new Date(),
-        // composition: null
+        composition: null
       }
     }
     this.handleChange = this.handleChange.bind(this);
-    // this.handleComposition = this.handleComposition.bind(this);
+    this.handleComposition = this.handleComposition.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+// *******COMPONENT DIDMOUNT NOT REGISTERING*******
   componentDidMount(){
     if(this.props.concert){
       this.setState({concert: {... this.props.concert}})
@@ -29,13 +29,13 @@ class ConcertForm extends Component {
     this.setState({concert: concert})
 
   }
-  // handleComposition(event){
-  //   const index = parseInt(event.target.value);
-  //   const selectedComposition = this.props.compositions[index]
-  //   let concert = this.state.concert;
-  //   concert['composition'] = selectedComposition;
-  //   this.setState({concert: concert})
-  // }
+  handleComposition(event){
+    const index = parseInt(event.target.value);
+    const selectedComposition = this.props.compositions[index]
+    let concert = this.state.concert;
+    concert['composition'] = selectedComposition;
+    this.setState({concert: concert})
+  }
   handleSubmit(event){
     event.preventDefault();
     if(this.state.concert.id){

@@ -111,12 +111,16 @@ h1 {
   color: yellow;
   text-align: center;
 }
+h3 {
+  color: yellow;
+}
 .subHeading {
   color: yellow;
 }
 #blurb {
   color: yellow;
-  text-align: left;
+  text-align: center;
+  font-size: 15px;
 }
 header * {
     display: inline;
@@ -151,4 +155,7 @@ button {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
+}
+img {
+  filter:grayscale(100%);
 }

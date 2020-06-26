@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Concert from './Concert.js';
 
 const ConcertList = (props) => {
   if(props.concerts.length === 0){
     return (
-      <p>NO LISTED EVENTS</p>
+      <p className="subHeading">NO LISTED EVENTS</p>
     )
   }
 
@@ -29,9 +29,13 @@ const ConcertList = (props) => {
   })
 
   return (
+    <Fragment>
+    <h3>Concert List in Chronological Order</h3>
+
     <ul className="component-list">
     {concerts}
     </ul>
+      </Fragment>
   )
 
 }

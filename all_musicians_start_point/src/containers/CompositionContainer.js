@@ -75,7 +75,7 @@ class CompositionContainer extends Component {
         }}/>
         <Route exact path='/compositions/:id' render={(props) => {
           const id = props.match.params.id;
-          const composition = this.findCompositionById(props.match.params.id);
+          const composition = this.findCompositionById(id);
           return <CompositionDetail composition={composition} onDelete={this.handleDelete}/>
         }}/>
           <Route render={(props) => {

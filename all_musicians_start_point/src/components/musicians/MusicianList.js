@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Musician from './Musician.js';
 
 
@@ -32,8 +32,10 @@ const musicians = props.musicians.map((musician, index) => {
 
 
 	return (
+		<Fragment>
+		<h3>Musicians Listed Alphabetically</h3>
 		<ul className="component-list">{musicians}</ul>
-
+</Fragment>
 	)
 }
  export default MusicianList;

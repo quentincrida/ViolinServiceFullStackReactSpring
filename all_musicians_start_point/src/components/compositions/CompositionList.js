@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Composition from './Composition.js';
 
 
 const CompositionList = (props) => {
 	if(props.compositions.length === 0) {
-		return (<p>Waiting on compositions....</p>)
+		return (<p className="subHeading">Waiting on compositions....</p>)
 	}
 
 	const sortedCompositions = props.compositions.sort(function(a, b){
@@ -30,9 +30,12 @@ const CompositionList = (props) => {
 		})
 
 	return (
+		<Fragment>
+		<h3>Composition List Ordered by Composer Name</h3>
 		<ul className="component-list">
 			{compositions}
 		</ul>
+		</Fragment>
 
 	)
 }

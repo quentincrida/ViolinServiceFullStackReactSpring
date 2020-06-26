@@ -87,53 +87,53 @@ public class DataLoader implements ApplicationRunner {
         Musician bill = new Musician("Bill", "Belgium", 55, "Timpani", "Principal", percussion);
         musicianRepository.save(bill);
 
-
-        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
-        concertRepository.save(balletMusic);
-
-        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
-        concertRepository.save(impressionists);
-
-
-        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67", balletMusic);
-        compositionRepository.save(beethoven);
-
-        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364", balletMusic);
-        compositionRepository.save(mozart);
-
-        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?", balletMusic);
-        compositionRepository.save(haydn);
-
-        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47", balletMusic);
-        compositionRepository.save(shostakovich);
-
-        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456", impressionists);
-        compositionRepository.save(vivaldi);
-
-        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109", impressionists);
-        compositionRepository.save(debussy);
-
-        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", balletMusic);
-        compositionRepository.save(uccellini);
-
-        seb.addComposition(beethoven);
-        seb.addComposition(mozart);
-        musicianRepository.save(seb);
-
-        haydn.addMusician(este);
-        compositionRepository.save(haydn);
-
-        vivaldi.addMusician(emile);
-        vivaldi.addMusician(peter);
-        compositionRepository.save(vivaldi);
-
-        shostakovich.addMusician(leon);
-        shostakovich.addMusician(seb);
-        compositionRepository.save(shostakovich);
-
-        este.addComposition(shostakovich);
-        este.addComposition(beethoven);
-        musicianRepository.save(este);
+//
+//        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
+//        concertRepository.save(balletMusic);
+//
+//        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
+//        concertRepository.save(impressionists);
+//
+//
+//        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67", balletMusic);
+//        compositionRepository.save(beethoven);
+//
+//        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364", balletMusic);
+//        compositionRepository.save(mozart);
+//
+//        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?", balletMusic);
+//        compositionRepository.save(haydn);
+//
+//        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47", balletMusic);
+//        compositionRepository.save(shostakovich);
+//
+//        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456", impressionists);
+//        compositionRepository.save(vivaldi);
+//
+//        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109", impressionists);
+//        compositionRepository.save(debussy);
+//
+//        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", balletMusic);
+//        compositionRepository.save(uccellini);
+//
+//        seb.addComposition(beethoven);
+//        seb.addComposition(mozart);
+//        musicianRepository.save(seb);
+//
+//        haydn.addMusician(este);
+//        compositionRepository.save(haydn);
+//
+//        vivaldi.addMusician(emile);
+//        vivaldi.addMusician(peter);
+//        compositionRepository.save(vivaldi);
+//
+//        shostakovich.addMusician(leon);
+//        shostakovich.addMusician(seb);
+//        compositionRepository.save(shostakovich);
+//
+//        este.addComposition(shostakovich);
+//        este.addComposition(beethoven);
+//        musicianRepository.save(este);
 
 //        balletMusic.addComposition(shostakovich);
 //        balletMusic.addComposition(debussy);

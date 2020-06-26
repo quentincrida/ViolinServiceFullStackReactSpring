@@ -15,6 +15,7 @@ class CompositionForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleConcert = this.handleConcert.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.findConcertIndex = this.findConcertIndex.bind(this);
   }
 
   componentDidMount(){

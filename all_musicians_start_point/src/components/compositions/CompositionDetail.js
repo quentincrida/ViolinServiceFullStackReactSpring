@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Composition from './Composition';
-import Concert from '../concerts/Concert';
+// import Concert from '../concerts/Concert';
 import {Link} from 'react-router-dom';
 
 

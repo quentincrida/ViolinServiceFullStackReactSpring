@@ -12,8 +12,8 @@ const MainContainer = () => {
       <Router>
 
       <Fragment>
-        <h1>The Musicians Booking App</h1>
-        <p id="blurb">An App for creating and editing musicians, compositions and events.</p>
+        <h1>The Musicians Booking App
+        <p id="blurb">An app for creating concerts and populating them with compositions and musicians</p></h1>
       <NavBar/>
       <Switch>
         <Route path="/musicians" component={MusicianContainer}/>
