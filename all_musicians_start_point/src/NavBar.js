@@ -6,6 +6,12 @@ const NavBar = (props) => {
       <img src="/images/orchestra-2098877_640.jpg" alt="Logo" className="logo"/>
 
       <ul>
+      <li className="navLink">
+        <a href="/concerts">Concerts</a>
+      </li>
+      <li className="navLink">
+      <a href="/concerts/new">Add a Concert</a>
+      </li>
         <li className="navLink">
           <a href="/musicians">Musicians</a>
         </li>
@@ -24,12 +30,7 @@ const NavBar = (props) => {
         <li className="navLink">
           <a href="/compositions/new">Add a Composition</a>
         </li>
-        <li className="navLink">
-          <a href="/concerts">Concerts</a>
-        </li>
-        <li className="navLink">
-        <a href="/concerts/new">Add a Concert</a>
-        </li>
+
       </ul>
     </header>
   )

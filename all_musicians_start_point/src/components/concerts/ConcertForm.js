@@ -15,6 +15,7 @@ class ConcertForm extends Component {
     this.handleComposition = this.handleComposition.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 // *******COMPONENT DIDMOUNT NOT REGISTERING*******
   componentDidMount(){
     if(this.props.concert){
@@ -27,7 +28,6 @@ class ConcertForm extends Component {
     let concert = this.state.concert
     concert[propertyName] = event.target.value;
     this.setState({concert: concert})
-
   }
   handleComposition(event){
     const index = parseInt(event.target.value);

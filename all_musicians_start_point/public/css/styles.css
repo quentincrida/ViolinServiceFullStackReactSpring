@@ -52,7 +52,7 @@ li.component-item {
 }
 
 .navLink {
-    font-size: 20px;
+    font-size: 15px;
     display: inline;
     background-color: #ebeb34;
     border: 2px solid black;
@@ -96,6 +96,7 @@ font-family: sans-serif ;
 .main-image{
   width:120%;
   height:120%;
+
 }
 header {
     background-color: #e35327;
@@ -122,6 +123,10 @@ h3 {
   text-align: center;
   font-size: 15px;
 }
+body img {
+  filter:grayscale(100%);
+  
+}
 header * {
     display: inline;
     /* display: flex; */
@@ -129,6 +134,7 @@ header * {
 header img {
   height: 80px;
 margin-left: 40px;
+filter:grayscale(20%)
 }
 header li {
     margin: 20px;
@@ -155,7 +161,4 @@ button {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
-}
-img {
-  filter:grayscale(100%);
 }
