@@ -68,7 +68,7 @@ class ConcertDetail extends Component {
       <button onClick={this.handleDelete} className="delete">Delete {this.props.concert.title}**</button>
       <p id="deleteNote">** Remove all Compositions before attempting to Delete a Concert</p>
 
-      <Link to= {editUrl}><button type="button">Edit {this.props.concert.title}</button></Link>
+      <Link to= {editUrl}><button type="button" className="edit">Edit {this.props.concert.title}</button></Link>
       </div>
 
     )
