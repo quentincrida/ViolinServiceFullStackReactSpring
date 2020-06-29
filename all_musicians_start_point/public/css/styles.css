@@ -110,7 +110,7 @@ header {
 }
 h1 {
   color: yellow;
-  text-align: center;
+  text-align: left;
 }
 h3 {
   color: yellow;
@@ -120,12 +120,13 @@ h3 {
 }
 #blurb {
   color: yellow;
-  text-align: center;
+  text-align:inherit;
   font-size: 15px;
+  font-style: italic;
 }
 body img {
   filter:grayscale(100%);
-  
+
 }
 header * {
     display: inline;
