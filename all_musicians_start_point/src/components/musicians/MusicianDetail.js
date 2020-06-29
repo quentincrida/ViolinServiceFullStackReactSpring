@@ -38,8 +38,7 @@ class MusicianDetail extends Component {
     }
 
     const compositions = this.props.musician.compositions.map((composition, index) => {
-      return <li key={index}>{composition.composer}: {composition.title}<button onClick={() => this.deleteComposition(index)}
-      >Delete</button>
+      return <li key={index}>{composition.composer}: {composition.title}<button onClick={() => this.deleteComposition(index)}>Delete</button>
       </li>
     })
 
