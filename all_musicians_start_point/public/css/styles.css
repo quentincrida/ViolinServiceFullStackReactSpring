@@ -73,10 +73,7 @@ li.component-item {
     background-color: #f5f3f0;
     color: black;
     padding: 2px 6px 2px 6px;
-    /* border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC; */
+
   }
 
 body {
@@ -130,7 +127,6 @@ body img {
 }
 header * {
     display: inline;
-    /* display: flex; */
 }
 header img {
   height: 80px;
@@ -155,8 +151,6 @@ footer {
 button {
   font: 18px Arial;
   text-decoration: ;
-  /* background-color: #EEEEEE;
-  color: #333333; */
   padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
