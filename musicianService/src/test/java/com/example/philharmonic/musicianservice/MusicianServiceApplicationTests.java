@@ -34,11 +34,9 @@ public class MusicianServiceApplicationTests {
     @Test
     public void createMusicianAndTutti(){
         Tutti tutti = new Tutti("Firsts");
-       // tutti.setId(1L);
         tuttiRepository.save(tutti);
 
         Musician violinist = new Musician("Johnny", "Walker", 25, "Violin", "Rank and File", tutti);
-       // tutti.setId(1L);
         musicianRepository.save(violinist);
     }
 
@@ -74,42 +72,4 @@ public class MusicianServiceApplicationTests {
         composition.addMusician(violin2);
         composition.addMusician(violin3);
     }
-
-//*****NOTED OUT LAST
-//    @Test
-//////    public void addCompositionToConcert(){
-//////
-//////        Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
-//////        concertRepository.save(baroque);
-//////
-//////        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", baroque);
-//////        compositionRepository.save(uccellini);
-//////
-//////        baroque.addComposition(uccellini);
-//////    }
-//////
-//////  *******STOP HERE
-
-
-
-
-//    @Test
-//    public void addOneCompositionToManyConcerts(){
-//
-//        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
-//        compositionRepository.save(uccellini);
-//
-//        Concert earlyBaroque = new Concert("Early Baroque", "FHCC", LocalDateTime.of(2021,6,22,19,45,00));
-//        concertRepository.save(earlyBaroque);
-//
-//        Concert midBaroque = new Concert("Mid Baroque", "Arena", LocalDateTime.of(2022,7,22,19,45,00));
-//        concertRepository.save(midBaroque);
-//
-//        Concert lateBaroque = new Concert("Late Baroque", "FHCC", LocalDateTime.of(2023,8,22,19,45,00));
-//        concertRepository.save(lateBaroque);
-//
-//        earlyBaroque.addComposition(uccellini);
-//        midBaroque.addComposition(uccellini);
-//        lateBaroque.addComposition(uccellini);
-//    }
 }

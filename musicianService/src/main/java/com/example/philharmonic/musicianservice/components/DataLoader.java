@@ -120,25 +120,6 @@ public class DataLoader implements ApplicationRunner {
         este.addComposition(shostakovich);
         este.addComposition(beethoven);
         musicianRepository.save(este);
-//
-//        balletMusic.addComposition(shostakovich);
-//        balletMusic.addComposition(debussy);
-//        concertRepository.save(balletMusic);
-//
-//
-//
-//        impressionists.addComposition(debussy);
-//        impressionists.addComposition(shostakovich);
-//        concertRepository.save(impressionists);
-//
-//
-////***** UNNOTE FIRST****************
-//        uccellini.addConcert(impressionists);
-//        compositionRepository.save(uccellini);
-//
-//        debussy.addConcert(impressionists);
-//        compositionRepository.save(debussy);
-
 
 
     }
