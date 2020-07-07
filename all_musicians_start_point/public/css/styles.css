@@ -84,7 +84,8 @@ background-image: url('../images/orchestra-2098877_640.jpg');
 background-size: cover;
 opacity: 100%;
 background-repeat: no-repeat;
-background-color: ghostWhite;
+/* background-color: ghostWhite; */
+background-color: black;
 height: 125vh;
 font-family: sans-serif ;
 }
