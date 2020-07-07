@@ -28,10 +28,10 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
-    @JsonIgnoreProperties(value="compositions")
-    @ManyToOne
-    @JoinColumn(name="concert_id", nullable = false)
-    private Concert concert;
+//    @JsonIgnoreProperties(value="compositions")
+//    @ManyToOne
+//    @JoinColumn(name="concert_id", nullable = false)
+//    private Concert concert;
 
 
 //
@@ -69,23 +69,23 @@ public class Composition {
 
 
 
-    public Composition(String composer, String title, String key, String opus, Concert concert) {
+    public Composition(String composer, String title, String key, String opus) {
         this.composer = composer;
         this.title = title;
         this.key = key;
         this.opus = opus;
-        this.concert = concert;
+//        this.concert = concert;
         this.musicians  = new ArrayList<Musician>();
 }
     public Composition(){}
 
-    public Concert getConcert() {
-        return concert;
-    }
-
-    public void setConcert(Concert concert) {
-        this.concert = concert;
-    }
+//    public Concert getConcert() {
+//        return concert;
+//    }
+//
+//    public void setConcert(Concert concert) {
+//        this.concert = concert;
+//    }
 
     public String getComposer() {
         return composer;

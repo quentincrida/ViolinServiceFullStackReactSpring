@@ -14,7 +14,6 @@ const url ="/compositions/" + props.composition.id;
       <p>Title: {props.composition.title}</p>
       <p>Key: {props.composition.key}</p>
       <p>Opus: {props.composition.opus}</p>
-      <p>Concerts: {props.composition.concert.title}</p>
     </Fragment>
   )
 }

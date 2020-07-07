@@ -1,21 +1,16 @@
 package com.example.philharmonic.musicianservice;
 
 import com.example.philharmonic.musicianservice.models.Composition;
-import com.example.philharmonic.musicianservice.models.Concert;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
 import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
-import com.example.philharmonic.musicianservice.repositories.ConcertRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 
 
 //@RunWith(SpringRunner.class)
@@ -30,17 +25,11 @@ public class MusicianServiceApplicationTests {
     @Autowired
     CompositionRepository compositionRepository;
 
-    @Autowired
-    ConcertRepository concertRepository;
 
     @Test
     public void contextLoads(){}
 
-    @Test
-    public void createConcert(){
-        Concert marini = new Concert("Marini", "GRCH", LocalDateTime.of(2020,05,10,19,45,00));
-        concertRepository.save(marini);
-    }
+
 
     @Test
     public void createMusicianAndTutti(){
@@ -59,9 +48,8 @@ public class MusicianServiceApplicationTests {
         tuttiRepository.save(tutti);
         Musician leader = new Musician("Jurgs", "Schwietering", 28, "Violin", "Leader", tutti);
         musicianRepository.save(leader);
-        Concert baroque = new Concert("Baroque", "FHCC", LocalDateTime.of(2020,6,22,19,45,00));
-        concertRepository.save(baroque);
-        Composition composition = new Composition("Beethoven", "Triple Concerto", "C Major", "10", baroque);
+
+        Composition composition = new Composition("Beethoven", "Triple Concerto", "C Major", "10");
         compositionRepository.save(composition);
 
 
@@ -70,7 +58,7 @@ public class MusicianServiceApplicationTests {
         Musician violin2 = new Musician("Wendy", "Schwietering", 6, "violin", "Sub Principal",tutti2);
         musicianRepository.save(violin2);
 
-        Composition composition2 = new Composition("Mozart", "Symphony Nr 1", "F minor", "K. 23", baroque);
+        Composition composition2 = new Composition("Mozart", "Symphony Nr 1", "F minor", "K. 23");
         compositionRepository.save(composition2);
 
 
@@ -78,7 +66,7 @@ public class MusicianServiceApplicationTests {
         tuttiRepository.save(tutti3);
         Musician violin3 = new Musician("Simos", "Aering", 30, "Violin", "Principal", tutti3);
         musicianRepository.save(violin3);
-        Composition composition3 = new Composition("Shostakovich", "The Nose", "D Major", "152", baroque);
+        Composition composition3 = new Composition("Shostakovich", "The Nose", "D Major", "152");
         compositionRepository.save(composition3);
 
 

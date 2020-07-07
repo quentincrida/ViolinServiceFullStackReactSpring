@@ -2,11 +2,9 @@ package com.example.philharmonic.musicianservice.components;
 
 import com.example.philharmonic.musicianservice.models.Composition;
 //import com.example.philharmonic.musicianservice.models.Concert;
-import com.example.philharmonic.musicianservice.models.Concert;
 import com.example.philharmonic.musicianservice.models.Tutti;
 import com.example.philharmonic.musicianservice.models.Musician;
 import com.example.philharmonic.musicianservice.repositories.CompositionRepository;
-import com.example.philharmonic.musicianservice.repositories.ConcertRepository;
 import com.example.philharmonic.musicianservice.repositories.TuttiRepository;
 import com.example.philharmonic.musicianservice.repositories.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -29,8 +25,6 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CompositionRepository compositionRepository;
 
-    @Autowired
-    ConcertRepository concertRepository;
 
     public DataLoader() {
 
@@ -87,33 +81,25 @@ public class DataLoader implements ApplicationRunner {
         Musician bill = new Musician("Bill", "Belgium", 55, "Timpani", "Principal", percussion);
         musicianRepository.save(bill);
 
-
-        Concert balletMusic = new Concert("Ballet Music", "Usher Hall", LocalDateTime.of(2020,12,15,19,45));
-        concertRepository.save(balletMusic);
-
-        Concert impressionists = new Concert("Impressionism", "City Halls, Glasgow",  LocalDateTime.of(2021,01,01,20,00));
-        concertRepository.save(impressionists);
-
-
-        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67", balletMusic);
+        Composition beethoven = new Composition("Beethoven", "Symphony Nr 5", "C minor", "67");
         compositionRepository.save(beethoven);
 
-        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364", balletMusic);
+        Composition mozart = new Composition("Mozart", "Sinfonia Concertante", "E flat Major", "K.364");
         compositionRepository.save(mozart);
 
-        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?", balletMusic);
+        Composition haydn = new Composition("Haydn", "Symphony Nr 45, The Farewell", "F sharp minor", "Hb: ?");
         compositionRepository.save(haydn);
 
-        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47", balletMusic);
+        Composition shostakovich = new Composition("Shostakovich", "Symphony Nr 5", "D minor", "47");
         compositionRepository.save(shostakovich);
 
-        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456", impressionists);
+        Composition vivaldi = new Composition("Vivaldi", "Le Quattro Stagioni", "C Major", "RV: 456");
         compositionRepository.save(vivaldi);
 
-        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109", impressionists);
+        Composition debussy = new Composition("Debussy", "La mer", "Minor scale", "L.109");
         compositionRepository.save(debussy);
 
-        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45", balletMusic);
+        Composition uccellini = new Composition("Uccellini", "Passacalio", "D Major", "45");
         compositionRepository.save(uccellini);
 
         seb.addComposition(beethoven);

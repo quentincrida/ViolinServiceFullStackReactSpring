@@ -4,7 +4,6 @@ import NavBar from '../NavBar.js';
 import MusicianContainer from './MusicianContainer';
 import TuttiContainer from './TuttiContainer';
 import CompositionContainer from'./CompositionContainer';
-import ConcertContainer from './ConcertContainer';
 
 const MainContainer = () => {
 
@@ -18,7 +17,6 @@ const MainContainer = () => {
         <Route path="/musicians" component={MusicianContainer}/>
         <Route path="/tuttis" component={TuttiContainer}/>
         <Route path="/compositions" component={CompositionContainer}/>
-        <Route path="/concerts" component={ConcertContainer}/>
       </Switch>
       <footer>&copy; Quentin Crida 2020</footer>
       </Fragment>
