@@ -33,6 +33,19 @@
 }
 #deleteNote {
   color: red;
+  animation: animate 2.5s linear infinite;
+}
+@keyframes animate {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.7;
+  }
+  100%{
+    opacity: 0;
+  }
+
 }
 .edit {
   color: #2ac722;
@@ -156,7 +169,7 @@ footer {
 button {
   font: 18px Arial;
   text-decoration: ;
-  
+
   padding: 2px 6px 2px 6px;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
