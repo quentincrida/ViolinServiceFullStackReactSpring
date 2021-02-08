@@ -7,7 +7,7 @@ class MusicianForm extends Component {
     musician: {
       firstName: "",
       lastName: "",
-      age: 0,
+      age: null,
       instrument: "",
       position: "",
       tutti: null
