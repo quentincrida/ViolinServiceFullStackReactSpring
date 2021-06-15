@@ -12,9 +12,7 @@ import java.util.List;
 
 @RestController
 public class MusicianController {
-    //responseEntity allows me to specify status code,
-// and getAllViolins will take a payload of type List<Violin>.
-    //HttpStatus.OK = code 200
+
     @Autowired
     MusicianRepository musicianRepository;
 
@@ -44,6 +42,7 @@ public class MusicianController {
         musicianRepository.delete(found);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
+
    }
 
 

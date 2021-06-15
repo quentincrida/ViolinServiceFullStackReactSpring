@@ -3,6 +3,7 @@ package com.example.philharmonic.musicianservice.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,13 +20,14 @@ public class Tutti {
 
     //prevent recursion with @JsonBackReference
     @JsonIgnoreProperties(value="tutti")
-//    @JsonBackReference
+
     @OneToMany(mappedBy = "tutti", fetch = FetchType.LAZY)
     private List<Musician>  musicians;
 
     public Tutti(String name) {
         this.name = name;
-//        this.tuttis = new ArrayList<Violin>();
+        this.musicians = new ArrayList<Musician>();
+
     }
     public Tutti(){}
 

@@ -28,33 +28,8 @@ public class Composition {
     @Column(name="opus")
     private String opus;
 
-//    @JsonIgnoreProperties(value="compositions")
-//    @ManyToOne
-//    @JoinColumn(name="concert_id", nullable = false)
-//    private Concert concert;
-
-
-//
-//    @JsonIgnoreProperties(value="compositions")
-//    @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-//    @JoinTable(
-//            name= "concerts_compositions",
-//            joinColumns =  {@JoinColumn(
-//                    name = "composition_id",
-//                    nullable = false,
-//                    updatable= false)
-//            },
-//            inverseJoinColumns = {@JoinColumn(
-//                    name = "concert_id",
-//                    nullable = false,
-//                    updatable = false
-//            )}
-//    )
-//    private List<Concert> concerts;
-
-
     @JsonIgnoreProperties(value="compositions")
+    //instruct serializer not to serialize the relationship properties
     @ManyToMany
     @JoinTable(
            name = "musicians_compositions",
@@ -75,17 +50,9 @@ public class Composition {
         this.key = key;
         this.opus = opus;
 //        this.concert = concert;
-        this.musicians  = new ArrayList<Musician>();
+        this.musicians  = new ArrayList<>();
 }
     public Composition(){}
-
-//    public Concert getConcert() {
-//        return concert;
-//    }
-//
-//    public void setConcert(Concert concert) {
-//        this.concert = concert;
-//    }
 
     public String getComposer() {
         return composer;
@@ -139,7 +106,5 @@ public class Composition {
         this.musicians.add(musician);
     }
 
-//    public void addConcert(Concert concert){
-//        this.concerts.add(concert);
-//    }
+
 }

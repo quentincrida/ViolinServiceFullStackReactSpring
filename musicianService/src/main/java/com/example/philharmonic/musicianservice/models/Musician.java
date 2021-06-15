@@ -34,10 +34,12 @@ public class Musician implements Serializable {
 //new jsonignore
     @JsonIgnoreProperties(value="musicians")
     @ManyToOne
+    //foreign key
     @JoinColumn(name="tutti_id", nullable = false)
     private Tutti tutti;
 
     @JsonIgnoreProperties(value="musicians")
+    //instruct serializer not to serialize the relationship properties
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

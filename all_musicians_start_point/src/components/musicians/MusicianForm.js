@@ -7,7 +7,7 @@ class MusicianForm extends Component {
     musician: {
       firstName: "",
       lastName: "",
-      age: null,
+      age: "",
       instrument: "",
       position: "",
       tutti: null
@@ -21,7 +21,7 @@ class MusicianForm extends Component {
 
   componentDidMount(){
     if(this.props.musician){
-      this.setState({musician: {... this.props.musician}})
+      this.setState({musician: {...this.props.musician}})
       }
     }
   findTuttiIndex(){

@@ -18,7 +18,7 @@ class CompositionForm extends Component {
 
   componentDidMount(){
     if(this.props.composition){
-      this.setState({composition: {... this.props.composition}})
+      this.setState({composition: {...this.props.composition}})
     }
   }
 

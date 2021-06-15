@@ -29,8 +29,6 @@ public class MusicianServiceApplicationTests {
     @Test
     public void contextLoads(){}
 
-
-
     @Test
     public void createMusicianAndTutti(){
         Tutti tutti = new Tutti("Firsts");
